@@ -66,4 +66,3 @@ public abstract class AppDialog : Window
         Content = root;
     }
 }
-

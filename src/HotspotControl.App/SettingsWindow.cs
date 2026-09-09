@@ -13,9 +13,13 @@ public sealed class SettingsWindow : AppDialog
     private readonly TextBlock message = new() { TextWrapping = TextWrapping.Wrap, Margin = new Thickness(0, 16, 0, 0) };
     private readonly Button saveButton = new() { Content = "Speichern", IsEnabled = false, Margin = new Thickness(0, 18, 0, 0) };
     private bool busy;
+    private bool closed;
+    private readonly HotspotService service;
+    private readonly CancellationTokenSource lifetime = new();
 
-    public SettingsWindow(Window owner) : base(owner, "Einstellungen", 650)
+    public SettingsWindow(MainWindow owner) : base(owner, "Einstellungen", 650)
     {
+        service = owner.Service;
         var panel = new StackPanel { Margin = new Thickness(24, 10, 24, 24) };
         panel.Children.Add(new TextBlock { Text = "Einstellungen", FontSize = 24, FontWeight = FontWeights.SemiBold });
         var tabs = new TabControl { Foreground = Brushes.White, Background = new SolidColorBrush(Color.FromRgb(17, 44, 67)), Margin = new Thickness(0, 18, 0, 0), Height = 260 };
@@ -57,10 +61,13 @@ public sealed class SettingsWindow : AppDialog
             ToolTip = "Startet die App bei deiner Windows-Anmeldung."
         };
         System.Windows.Automation.AutomationProperties.SetAutomationId(startup, "UserStartupCheckBox");
-        startup.Click += (_, _) =>
+        bool updatingStartup = false;
+        void SaveStartup(object sender, RoutedEventArgs e)
         {
             try
             {
+                if (updatingStartup) return;
+                updatingStartup = true;
                 UserStartup.SetEnabled(startup.IsChecked == true);
                 message.Text = startup.IsChecked == true ? "Autostart für dein Benutzerkonto aktiviert." : "Autostart deaktiviert.";
             }
@@ -69,21 +76,28 @@ public sealed class SettingsWindow : AppDialog
                 startup.IsChecked = UserStartup.IsEnabled;
                 message.Text = "Windows erlaubt das Ändern des Autostarts nicht.";
             }
-        };
+            finally { updatingStartup = false; }
+        }
+        startup.Checked += SaveStartup;
+        startup.Unchecked += SaveStartup;
         panel.Children.Add(startup);
         panel.Children.Add(new TextBlock { Text = "Autostart gilt nur für dein Benutzerkonto.", FontSize = 11, Foreground = Brushes.LightSteelBlue });
         var autoEnable = new CheckBox
         {
             Content = "Hotspot beim App-Start einschalten",
             IsChecked = PreferencesStore.Read().AutoEnableHotspot,
-            Margin = new Thickness(0, 12, 0, 0), Foreground = Brushes.White,
+            Margin = new Thickness(0, 12, 0, 0),
+            Foreground = Brushes.White,
             ToolTip = "Gilt ab dem nächsten App-Start. Windows muss die Freigabe erlauben."
         };
         System.Windows.Automation.AutomationProperties.SetAutomationId(autoEnable, "AutoEnableHotspotCheckBox");
-        autoEnable.Click += (_, _) =>
+        bool updatingAutoEnable = false;
+        void SaveAutoEnable(object sender, RoutedEventArgs e)
         {
             try
             {
+                if (updatingAutoEnable) return;
+                updatingAutoEnable = true;
                 PreferencesStore.Save(new AppPreferences(autoEnable.IsChecked == true));
                 message.Text = "Startverhalten gespeichert. Gilt ab dem nächsten App-Start.";
             }
@@ -92,47 +106,57 @@ public sealed class SettingsWindow : AppDialog
                 autoEnable.IsChecked = PreferencesStore.Read().AutoEnableHotspot;
                 message.Text = "Die Einstellung konnte nicht gespeichert werden.";
             }
-        };
+            finally { updatingAutoEnable = false; }
+        }
+        autoEnable.Checked += SaveAutoEnable;
+        autoEnable.Unchecked += SaveAutoEnable;
         panel.Children.Add(autoEnable);
         panel.Children.Add(saveButton); panel.Children.Add(message);
         SetBody(panel);
         saveButton.Click += Save;
         Loaded += Load;
         Closing += (_, e) => { if (busy) e.Cancel = true; };
-        Closed += (_, _) => passwordBox.Clear();
+        Closed += (_, _) => { closed = true; lifetime.Cancel(); passwordBox.Clear(); };
     }
 
     private async void Load(object sender, RoutedEventArgs e)
     {
         try
         {
-            var settings = await Task.Run(HotspotActions.ReadSettings);
+            var settings = await service.ReadSettingsAsync(lifetime.Token);
+            if (closed) return;
             nameBox.Text = settings.Ssid;
             foreach (var band in settings.SupportedBands)
                 bandBox.Items.Add(new ComboBoxItem { Content = band switch { 0 => "Automatisch", 1 => "2,4 GHz", 2 => "5 GHz", _ => "Unbekannt" }, Tag = band });
             bandBox.SelectedItem = bandBox.Items.Cast<ComboBoxItem>().FirstOrDefault(item => (int)item.Tag == settings.Band);
             saveButton.IsEnabled = bandBox.SelectedItem is not null;
         }
-        catch (Exception exception) { message.Text = HotspotActions.Error(exception).Message; }
+        catch (Exception exception) { if (!closed) message.Text = HotspotActions.Error(exception).Message; }
     }
 
     private async void Save(object sender, RoutedEventArgs e)
     {
-        if (busy || bandBox.SelectedItem is not ComboBoxItem selected) return;
+        if (busy || service.IsBusy || bandBox.SelectedItem is not ComboBoxItem selected) return;
         busy = true; saveButton.IsEnabled = false;
+        nameBox.IsEnabled = passwordBox.IsEnabled = bandBox.IsEnabled = false;
         var ssid = nameBox.Text; var password = passwordBox.Password; var band = (int)selected.Tag;
         try
         {
-            var result = await Task.Run(() => HotspotActions.SaveSettingsAsync(ssid, password, band));
+            var result = await service.SaveSettingsAsync(ssid, password, band, lifetime.Token);
+            if (closed) return;
             message.Text = result.Message;
             if (result.Success) passwordBox.Clear();
         }
-        catch (Exception exception) { message.Text = HotspotActions.Error(exception).Message; }
-        finally { busy = false; saveButton.IsEnabled = true; }
+        catch (Exception exception) { if (!closed) message.Text = HotspotActions.Error(exception).Message; }
+        finally
+        {
+            password = "";
+            busy = false;
+            if (!closed)
+            {
+                nameBox.IsEnabled = passwordBox.IsEnabled = bandBox.IsEnabled = true;
+                saveButton.IsEnabled = true;
+            }
+        }
     }
 }
-
-
-
-
-

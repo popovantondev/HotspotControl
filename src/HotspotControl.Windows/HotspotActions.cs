@@ -1,10 +1,11 @@
+using HotspotControl.Core;
 using Windows.Networking.Connectivity;
 using Windows.Networking.NetworkOperators;
 
 namespace HotspotControl.Windows;
 
 public sealed record NetworkSettings(string Ssid, int Band, IReadOnlyList<int> SupportedBands);
-public sealed record OperationResult(bool Success, string Message);
+public sealed record OperationResult(bool Success, string Message, bool Retryable = false);
 
 public static class HotspotActions
 {
@@ -33,13 +34,13 @@ public static class HotspotActions
             var manager = Manager();
             var state = manager.TetheringOperationalState;
             if (state == TetheringOperationalState.InTransition)
-                return new(false, "Windows ändert den Status bereits. Bitte kurz warten.");
+                return new(false, "Windows ändert den Status bereits. Bitte kurz warten.", true);
             if (state == (enabled ? TetheringOperationalState.On : TetheringOperationalState.Off))
                 return new(true, "Der gewünschte Status ist bereits aktiv.");
             var result = enabled ? await manager.StartTetheringAsync() : await manager.StopTetheringAsync();
             return result.Status == TetheringOperationStatus.Success
                 ? new(true, enabled ? "Hotspot eingeschaltet." : "Hotspot ausgeschaltet.")
-                : new(false, $"Windows konnte den Hotspot nicht umschalten (Fehlercode {(int)result.Status}).");
+                : DescribeStatus((int)result.Status);
         }
         catch (Exception exception) { return Error(exception); }
     }
@@ -76,8 +77,28 @@ public static class HotspotActions
         catch (Exception exception) { return Error(exception); }
     }
 
-    public static OperationResult Error(Exception exception) => new(false,
-        exception is UnauthorizedAccessException
-            ? "Windows erlaubt diese Aktion auf diesem Computer nicht."
-            : $"Die Windows-Anfrage ist fehlgeschlagen (Fehlercode 0x{exception.HResult:X8}).");
+    public static OperationResult DescribeStatus(int status) => status switch
+    {
+        0 or 9 => new(true, "Hotspot ist eingeschaltet."),
+        2 => new(false, "Die mobile Internetverbindung ist ausgeschaltet."),
+        3 => new(false, "WLAN ist ausgeschaltet. Bitte WLAN in Windows aktivieren."),
+        4 => new(false, "Der Mobilfunkanbieter antwortet noch nicht.", true),
+        5 => new(false, "Der Mobilfunkanbieter erlaubt keine Internetfreigabe."),
+        6 => new(false, "Windows führt bereits eine Hotspot-Aktion aus.", true),
+        7 => new(false, "Ein benötigtes Bluetooth-Gerät ist ausgeschaltet."),
+        8 => new(false, "Die Internetverbindung ist noch eingeschränkt.", true),
+        10 => new(false, "Das gewählte Frequenzband ist auf diesem Gerät nicht erlaubt."),
+        11 => new(false, "Das Frequenzband kollidiert mit der bestehenden WLAN-Verbindung."),
+        _ => new(false, $"Windows konnte die Aktion nicht abschließen (Fehlercode {status}).")
+    };
+
+    public static OperationResult Error(Exception exception) => new(false, exception switch
+    {
+        OperationBusyException => "Eine Windows-Anfrage läuft noch. Bitte warten oder die App neu starten.",
+        TimeoutException => "Windows antwortet zu langsam. Die Aktion kann noch laufen. Bitte den Status später prüfen.",
+        OperationCanceledException => "Die Anfrage wurde abgebrochen.",
+        UnauthorizedAccessException => "Windows erlaubt diese Aktion auf diesem Computer nicht.",
+        InvalidOperationException => "Keine verwendbare Internetverbindung verfügbar. Bitte die Windows-Verbindung prüfen.",
+        _ => $"Die Windows-Anfrage ist fehlgeschlagen (Fehlercode 0x{exception.HResult:X8})."
+    });
 }

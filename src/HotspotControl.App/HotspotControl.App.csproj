@@ -2,13 +2,17 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
-    <UseWPF>true</UseWPF><UseWindowsForms>true</UseWindowsForms><ApplicationIcon>Assets/Hotspot.ico</ApplicationIcon>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <RestorePackagesPath>../../.packages</RestorePackagesPath>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Assets/Hotspot.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyName>HotspotControl.App</AssemblyName>
+    <Description>Windows Mobile Hotspot übersichtlich verwalten</Description>
   </PropertyGroup>
-  <ItemGroup><ProjectReference Include="../HotspotControl.Windows/HotspotControl.Windows.csproj" /></ItemGroup>
-<ItemGroup><Resource Include="Assets/Hotspot.ico" /></ItemGroup><ItemGroup><Using Remove="System.Windows.Forms" /><Using Remove="System.Drawing" /></ItemGroup></Project>
-
-
+  <ItemGroup>
+    <ProjectReference Include="../HotspotControl.Windows/HotspotControl.Windows.csproj" />
+    <Resource Include="Assets/Hotspot.ico" />
+    <Using Remove="System.Windows.Forms" />
+    <Using Remove="System.Drawing" />
+  </ItemGroup>
+</Project>

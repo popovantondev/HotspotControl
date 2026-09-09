@@ -13,9 +13,15 @@ public sealed class DevicesWindow : AppDialog
     private readonly Button refresh = new() { Content = "Aktualisieren", Margin = new Thickness(0, 20, 0, 0) };
     private IReadOnlyList<string> devices = Array.Empty<string>();
     private int index;
+    private bool closed;
+    private bool loading;
+    private readonly HotspotService service;
+    private readonly CancellationTokenSource lifetime = new();
 
-    public DevicesWindow(Window owner) : base(owner, "Verbundene Geräte", 460)
+    public DevicesWindow(MainWindow owner) : base(owner, "Verbundene Geräte", 460)
     {
+        service = owner.Service;
+        Closed += (_, _) => { closed = true; lifetime.Cancel(); };
         var panel = new StackPanel { Margin = new Thickness(24, 10, 24, 24) };
         panel.Children.Add(new TextBlock { Text = "Verbundene Geräte", FontSize = 24 });
         panel.Children.Add(detail);
@@ -32,11 +38,13 @@ public sealed class DevicesWindow : AppDialog
 
     private async void Load(object sender, RoutedEventArgs e)
     {
+        if (loading || service.IsBusy) return;
+        loading = true;
         refresh.IsEnabled = previous.IsEnabled = next.IsEnabled = false;
         detail.Text = "Geräte werden abgefragt …";
-        try { devices = await Task.Run(HotspotActions.ReadDevices); index = 0; ShowDevice(); }
-        catch (Exception exception) { devices = Array.Empty<string>(); detail.Text = HotspotActions.Error(exception).Message; }
-        finally { refresh.IsEnabled = true; }
+        try { devices = await service.ReadDevicesAsync(lifetime.Token); if (closed) return; index = 0; ShowDevice(); }
+        catch (Exception exception) { if (!closed) { devices = Array.Empty<string>(); detail.Text = HotspotActions.Error(exception).Message; } }
+        finally { loading = false; if (!closed) refresh.IsEnabled = true; }
     }
 
     private void ShowDevice()
@@ -46,4 +54,3 @@ public sealed class DevicesWindow : AppDialog
         next.IsEnabled = index + 1 < devices.Count;
     }
 }
-

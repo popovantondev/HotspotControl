@@ -6,4 +6,4 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <RestorePackagesPath>../../.packages</RestorePackagesPath>
   </PropertyGroup>
-</Project>
+<ItemGroup><ProjectReference Include="../HotspotControl.Core/HotspotControl.Core.csproj" /></ItemGroup></Project>

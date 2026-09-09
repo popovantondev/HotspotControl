@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/HotspotControl.Core/HotspotControl.Core.csproj" />
+    <Project Path="src/HotspotControl.Windows/HotspotControl.Windows.csproj" />
+    <Project Path="src/HotspotControl.App/HotspotControl.App.csproj" />
+    <Project Path="src/HotspotControl.Probe/HotspotControl.Probe.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/HotspotControl.Checks/HotspotControl.Checks.csproj" />
+    <Project Path="tests/HotspotControl.Integration/HotspotControl.Integration.csproj" />
+  </Folder>
+</Solution>

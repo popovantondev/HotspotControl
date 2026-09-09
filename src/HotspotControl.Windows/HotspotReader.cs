@@ -41,4 +41,3 @@ public static class HotspotReader
     private static HotspotSnapshot Failure(int code, string message) =>
         new(HotspotState.Unknown, null, null, code, message);
 }
-
