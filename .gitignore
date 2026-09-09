@@ -1,0 +1,13 @@
+bin/
+obj/
+.packages/
+.vs/
+*.user
+*.suo
+
+# Diagnostic output can contain device-specific information.
+probe-output/
+*.lnk
+artifacts/
+.runtime/
+*.tmp

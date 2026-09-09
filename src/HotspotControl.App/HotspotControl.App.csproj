@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
+    <UseWPF>true</UseWPF><UseWindowsForms>true</UseWindowsForms><ApplicationIcon>Assets/Hotspot.ico</ApplicationIcon>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RestorePackagesPath>../../.packages</RestorePackagesPath>
+  </PropertyGroup>
+  <ItemGroup><ProjectReference Include="../HotspotControl.Windows/HotspotControl.Windows.csproj" /></ItemGroup>
+<ItemGroup><Resource Include="Assets/Hotspot.ico" /></ItemGroup><ItemGroup><Using Remove="System.Windows.Forms" /><Using Remove="System.Drawing" /></ItemGroup></Project>
+
+
