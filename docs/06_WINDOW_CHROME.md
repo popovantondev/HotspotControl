@@ -17,4 +17,3 @@ Das Fenster wurde nach der Prüfung erneut geöffnet.
 Update: Fenstergröße vorübergehend auf 480 x 820 festgesetzt (ResizeMode=NoResize).
 Maximieren-Schaltfläche entfernt. UI Automation bietet kein TransformPattern mehr an und bestätigt
 CanMaximize=False sowie keine Maximieren-Schaltfläche.
-

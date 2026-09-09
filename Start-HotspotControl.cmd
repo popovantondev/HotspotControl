@@ -1,8 +1,8 @@
 @echo off
-set "APP=%~dp0src\HotspotControl.App\bin\Release\net10.0-windows10.0.26100.0\HotspotControl.App.dll"
-set "LOCAL_DOTNET=%~dp0..\SlideFilter\.tools\dotnet\dotnet.exe"
-if exist "%LOCAL_DOTNET%" (
-  start "" "%LOCAL_DOTNET%" "%APP%"
-) else (
-  start "" dotnet "%APP%"
+set "APP=%~dp0artifacts\HotspotControl-0.2.0-win-x64\HotspotControl.App.exe"
+if not exist "%APP%" (
+  echo Das Programmpaket fehlt. Bitte zuerst Publish.ps1 ausfuehren.
+  pause
+  exit /b 1
 )
+start "" "%APP%"
