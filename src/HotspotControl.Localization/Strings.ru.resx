@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <data name="Tagline" xml:space="preserve"><value>Твоё подключение. Всё перед глазами.</value></data>
+  <data name="Demo" xml:space="preserve"><value>Демо · вымышленные данные</value></data>
+  <data name="PreviewTitle" xml:space="preserve"><value>Просмотр дизайна</value></data>
+  <data name="Close" xml:space="preserve"><value>Закрыть</value></data>
+  <data name="Minimize" xml:space="preserve"><value>Свернуть</value></data>
+  <data name="On" xml:space="preserve"><value>Раздача включена</value></data>
+  <data name="Off" xml:space="preserve"><value>Раздача выключена</value></data>
+  <data name="Unknown" xml:space="preserve"><value>Статус неизвестен</value></data>
+  <data name="Transition" xml:space="preserve"><value>Изменение подключения…</value></data>
+  <data name="Reading" xml:space="preserve"><value>Проверяем статус…</value></data>
+  <data name="Starting" xml:space="preserve"><value>Включаем…</value></data>
+  <data name="Stopping" xml:space="preserve"><value>Выключаем…</value></data>
+  <data name="Saving" xml:space="preserve"><value>Сохраняем…</value></data>
+  <data name="MobileHotspot" xml:space="preserve"><value>МОБИЛЬНЫЙ ХОТСПОТ</value></data>
+  <data name="Devices" xml:space="preserve"><value>Устройства</value></data>
+  <data name="ConnectedDevices" xml:space="preserve"><value>Подключённые устройства</value></data>
+  <data name="Settings" xml:space="preserve"><value>Настройки</value></data>
+  <data name="Refresh" xml:space="preserve"><value>Обновить</value></data>
+  <data name="PowerOn" xml:space="preserve"><value>Включить раздачу</value></data>
+  <data name="PowerOff" xml:space="preserve"><value>Выключить раздачу</value></data>
+  <data name="Details" xml:space="preserve"><value>Подробнее</value></data>
+  <data name="Unavailable" xml:space="preserve"><value>Недоступно</value></data>
+  <data name="Simple" xml:space="preserve"><value>Простые</value></data>
+  <data name="Advanced" xml:space="preserve"><value>Расширенные</value></data>
+  <data name="Network" xml:space="preserve"><value>СЕТЬ</value></data>
+  <data name="NetworkName" xml:space="preserve"><value>Имя сети (SSID)</value></data>
+  <data name="NewPassword" xml:space="preserve"><value>Новый пароль</value></data>
+  <data name="PasswordHelp" xml:space="preserve"><value>Оставь пустым, чтобы сохранить пароль.</value></data>
+  <data name="NetworkHelp" xml:space="preserve"><value>Сохраняй настройки сети при выключенной раздаче.</value></data>
+  <data name="SaveNetwork" xml:space="preserve"><value>Сохранить сеть</value></data>
+  <data name="Frequency" xml:space="preserve"><value>Диапазон частот</value></data>
+  <data name="Automatic" xml:space="preserve"><value>Автоматически</value></data>
+  <data name="BandHelp" xml:space="preserve"><value>2,4 ГГц: больше дальность. 5 ГГц: часто быстрее. Показаны только поддерживаемые диапазоны.</value></data>
+  <data name="Application" xml:space="preserve"><value>ПРИЛОЖЕНИЕ</value></data>
+  <data name="StartWindows" xml:space="preserve"><value>Запускать вместе с Windows</value></data>
+  <data name="StartHotspot" xml:space="preserve"><value>Включать раздачу при запуске</value></data>
+  <data name="ImmediateHelp" xml:space="preserve"><value>Эти параметры сохраняются сразу. В демо — только в памяти.</value></data>
+  <data name="Language" xml:space="preserve"><value>Язык</value></data>
+  <data name="LanguageSaved" xml:space="preserve"><value>Язык выбран. Применится при следующем запуске.</value></data>
+  <data name="ChooseLanguage" xml:space="preserve"><value>Выбери свой язык</value></data>
+  <data name="Welcome" xml:space="preserve"><value>Всё на твоём языке.</value></data>
+  <data name="Continue" xml:space="preserve"><value>Продолжить</value></data>
+  <data name="Privacy" xml:space="preserve"><value>Данные устройств остаются в памяти.</value></data>
+  <data name="NoDevices" xml:space="preserve"><value>Пока здесь тихо.</value></data>
+  <data name="NoDevicesHelp" xml:space="preserve"><value>Подключённые устройства появятся здесь.</value></data>
+  <data name="Device" xml:space="preserve"><value>Устройство</value></data>
+  <data name="Message" xml:space="preserve"><value>Подробности подключения</value></data>
+  <data name="SampleConnection" xml:space="preserve"><value>Пример сети · без реального подключения</value></data>
+  <data name="Ready" xml:space="preserve"><value>Всё нужное в одном месте.</value></data>
+  <data name="NoInternetProfile" xml:space="preserve"><value>Нет подключения к интернету. Проверь соединение в Windows.</value></data>
+  <data name="AccessDenied" xml:space="preserve"><value>Windows не разрешает это действие на этом компьютере.</value></data>
+  <data name="NotSupported" xml:space="preserve"><value>Эта функция недоступна на устройстве.</value></data>
+  <data name="Busy" xml:space="preserve"><value>Запрос Windows ещё выполняется. Подожди.</value></data>
+  <data name="TimedOut" xml:space="preserve"><value>Windows отвечает дольше обычного. Операция ещё может выполняться. Новые команды будут доступны после её завершения.</value></data>
+  <data name="Cancelled" xml:space="preserve"><value>Ожидание отменено.</value></data>
+  <data name="ContextChanged" xml:space="preserve"><value>Подключение изменилось. Загрузи настройки сети заново.</value></data>
+  <data name="NativeFailure" xml:space="preserve"><value>Windows не смогла выполнить запрос.</value></data>
+  <data name="InvalidSsid" xml:space="preserve"><value>Используй 1–32 печатных ASCII-символа без пробелов по краям.</value></data>
+  <data name="InvalidPassword" xml:space="preserve"><value>Используй 8–63 печатных ASCII-символа или оставь поле пустым.</value></data>
+  <data name="UnsupportedBand" xml:space="preserve"><value>Этот диапазон частот не поддерживается.</value></data>
+  <data name="MustTurnOff" xml:space="preserve"><value>Выключи раздачу перед сохранением.</value></data>
+  <data name="Enabled" xml:space="preserve"><value>Раздача включена.</value></data>
+  <data name="Disabled" xml:space="preserve"><value>Раздача выключена.</value></data>
+  <data name="AlreadyInRequestedState" xml:space="preserve"><value>Нужное состояние уже установлено.</value></data>
+  <data name="SettingsSaved" xml:space="preserve"><value>Настройки сети сохранены.</value></data>
+  <data name="PreferencesReadFailed" xml:space="preserve"><value>Не удалось прочитать настройки. Автоматическая раздача отключена.</value></data>
+  <data name="PreferencesSaveFailed" xml:space="preserve"><value>Не удалось сохранить настройки.</value></data>
+  <data name="StartupFailed" xml:space="preserve"><value>Не удалось настроить автозапуск Windows.</value></data>
+  <data name="MobileBroadbandDeviceOff" xml:space="preserve"><value>Мобильное подключение выключено.</value></data>
+  <data name="WiFiDeviceOff" xml:space="preserve"><value>Включи Wi-Fi в Windows.</value></data>
+  <data name="EntitlementCheckTimeout" xml:space="preserve"><value>Оператор мобильной связи пока не отвечает.</value></data>
+  <data name="EntitlementCheckFailure" xml:space="preserve"><value>Оператор не разрешает раздачу интернета.</value></data>
+  <data name="OperationInProgress" xml:space="preserve"><value>Windows изменяет состояние раздачи.</value></data>
+  <data name="BluetoothDeviceOff" xml:space="preserve"><value>Необходимое Bluetooth-устройство выключено.</value></data>
+  <data name="NetworkLimitedConnectivity" xml:space="preserve"><value>Доступ к интернету ограничен.</value></data>
+  <data name="RadioRestriction" xml:space="preserve"><value>Этот диапазон недоступен на устройстве.</value></data>
+  <data name="BandInterference" xml:space="preserve"><value>Диапазон конфликтует с текущим подключением.</value></data>
+  <data name="Scenario" xml:space="preserve"><value>Сценарий демо</value></data>
+  <data name="Compact" xml:space="preserve"><value>Компактное окно</value></data>
+  <data name="PreviewHelp" xml:space="preserve"><value>Только вымышленные данные. Кнопки имитируют действия и не управляют раздачей.</value></data>
+  <data name="Apply" xml:space="preserve"><value>Показать</value></data>
+  <data name="FirstLaunch" xml:space="preserve"><value>Первый запуск</value></data>
+  <data name="Empty" xml:space="preserve"><value>Нет подключённых устройств</value></data>
+  <data name="Pending" xml:space="preserve"><value>Операция ещё выполняется…</value></data>
+  <data name="TooSmall" xml:space="preserve"><value>Недостаточно места на экране. Нужно минимум 400 × 360 логических пикселей.</value></data>
+  <data name="SamplePhone" xml:space="preserve"><value>Демо-телефон</value></data>
+  <data name="SampleLaptop" xml:space="preserve"><value>Демо-ноутбук</value></data>
+  <data name="Selected" xml:space="preserve"><value>Выбрано</value></data>
+  <data name="MemorySaved" xml:space="preserve"><value>Сохранено на время демо.</value></data>
+  <data name="PreviewPanel" xml:space="preserve"><value>Управление прототипом</value></data>
+  <data name="ImmediateHelpReal" xml:space="preserve"><value>Эти настройки сразу сохраняются для вашей учётной записи.</value></data>
+  <data name="PreferencesSaved" xml:space="preserve"><value>Настройки приложения сохранены.</value></data>
+  <data name="StartupRepair" xml:space="preserve"><value>Ярлык автозапуска указывает на другое место. Включите «Запускать вместе с Windows», чтобы исправить его.</value></data>
+  <data name="StartupUnavailable" xml:space="preserve"><value>Сейчас невозможно проверить ярлык автозапуска.</value></data>
+  <data name="TrayOpen" xml:space="preserve"><value>Открыть</value></data>
+  <data name="TrayExit" xml:space="preserve"><value>Выход</value></data>
+  <data name="TrayOn" xml:space="preserve"><value>Hotspot Control — раздача включена</value></data>
+  <data name="TrayOff" xml:space="preserve"><value>Hotspot Control — раздача выключена</value></data>
+  <data name="TrayUnknown" xml:space="preserve"><value>Hotspot Control — состояние неизвестно</value></data>
+  <data name="TrayTransition" xml:space="preserve"><value>Hotspot Control — состояние меняется</value></data>
+  <data name="StartupPreparing" xml:space="preserve"><value>Подготовка автоматического включения раздачи…</value></data>
+  <data name="StartupWaiting" xml:space="preserve"><value>Ожидание подключения… попытка {0} из {1}.</value></data>
+  <data name="ProbeAdmin" xml:space="preserve"><value>Для корректной проверки запустите без прав администратора.</value></data>
+  <data name="ProbeTitle" xml:space="preserve"><value>Hotspot Control — проверка только для чтения</value></data>
+  <data name="ProbeState" xml:space="preserve"><value>Раздача: {0}</value></data>
+  <data name="ProbeDevices" xml:space="preserve"><value>Подключённые устройства: {0}</value></data>
+</root>

@@ -7,4 +7,4 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <RestorePackagesPath>../../.packages</RestorePackagesPath>
   </PropertyGroup>
-<ItemGroup><ProjectReference Include="../HotspotControl.Windows/HotspotControl.Windows.csproj" /></ItemGroup></Project>
+<ItemGroup><ProjectReference Include="../HotspotControl.Windows/HotspotControl.Windows.csproj" /><ProjectReference Include="../HotspotControl.Localization/HotspotControl.Localization.csproj" /></ItemGroup></Project>

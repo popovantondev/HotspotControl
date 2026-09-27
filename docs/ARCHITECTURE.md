@@ -1,35 +1,11 @@
-# Architektur
+# Architecture
 
-- **HotspotControl.Core:** Von WPF und Windows unabhängige Regeln für begrenztes
-  Warten, genau einen laufenden Auftrag, Autostartwiederholungen und Meldungen.
-- **HotspotControl.Windows:** Zugriff auf `NetworkOperatorTetheringManager` und
-  Übersetzung technischer Fehler in deutsche Meldungen. `HotspotService` wird
-  von allen Fenstern gemeinsam verwendet.
-- **HotspotControl.App:** WPF-Fenster, gemeinsamer Dialograhmen, Tray und persönliche
-  Starteinstellungen. Native Fensterfunktionen sind in kleinen Hilfsklassen gekapselt.
-- **HotspotControl.Probe:** Lesende Diagnose ohne Administratorrechte.
+`HotspotControl.Core` contains language-independent contracts, input validation, operation serialization and retry rules. `HotspotControl.Windows` adapts the Windows Mobile Hotspot API and projects its results into those contracts. `HotspotControl.Localization` maps result codes and UI keys to German, Russian and English. `HotspotControl.Presentation` implements the shared WPF views. `HotspotControl.App` binds them to Windows networking, preferences, single-instance activation and the tray.
 
-## Nebenläufigkeit
+`HotspotControl.Preview` uses the same views with an in-memory demonstration service. It neither references the production Windows/App projects nor accesses actual network settings or user preferences. `HotspotControl.Probe` reads diagnostic state without changing it.
 
-Eine Semaphore erlaubt nur einen Windows-Auftrag gleichzeitig. Der Auftrag läuft
-außerhalb des UI-Threads. Lesen wartet höchstens acht Sekunden, Schreiben 25.
-Nach einem Timeout hält der noch laufende Auftrag die Sperre weiterhin. Sein
-späteres Ergebnis wird nicht als neue UI-Aktion angewendet, Fehler werden beobachtet.
-Erst die nächste Statusabfrage liefert wieder einen aktuellen Zustand.
+Windows operations are serialized. A timeout ends the UI wait but may leave an underlying Windows operation running; its late result is not reported as a new success. A fresh status read establishes the next state. Manual commands cancel pending automatic-start retries. A per-user instance coordinator restores an existing window when the executable is started again.
 
-Der Autostart wird nur beim ersten Laden ausgeführt. Er wartet begrenzt auf die
-Internetverbindung; Wiederherstellen aus dem Tray startet keinen neuen Versuch.
-Manuelle Bedienung cancelt ausstehende Wiederholungen. Ein bereits an Windows
-übergebener Auftrag ist damit nicht automatisch rückgängig gemacht.
+Preferences preserve the 0.2.0 auto-enable flag, add a language and reject damaged or future schemas safely. Network passwords are passed to Windows when saved and are not stored in the app preference file. The Windows-start shortcut is per user.
 
-Ein benutzer- und sitzungsbezogener Mutex schützt vor mehreren Instanzen.
-Ein benanntes Event bittet die vorhandene Instanz, ihr Fenster wiederherzustellen.
-Das Tray nutzt denselben Wiederherstellungspfad. Beim Beenden werden Timer,
-Aktivierungsregistrierung und Tray-Ressourcen freigegeben.
-
-## Teststrategie
-
-Die Core-Regeln werden mit kontrollierten Tasks getestet: verspätete Antwort,
-Timeout, Abbruch, erneuter Aufruf und verspäteter Fehler. Diese Tests berühren
-keine Netzwerkeinstellungen. Eine separate Prüfung bedient das echte WPF-Fenster.
-Der ausdrücklich aktivierbare Integrationstest verifiziert die Windows-Aktionen.
+`Run-Checks.ps1` builds and runs behavior checks without changing the network. Preview checks and render exports use fictional data. Integration tests that change the real hotspot require an explicitly chosen test window. Historical numbered documents record earlier 0.2.0 design and verification, not current 0.3.0 claims.

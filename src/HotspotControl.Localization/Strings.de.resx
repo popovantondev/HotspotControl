@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <data name="Tagline" xml:space="preserve"><value>Deine Verbindung. Auf einen Blick.</value></data>
+  <data name="Demo" xml:space="preserve"><value>Demo · Beispieldaten</value></data>
+  <data name="PreviewTitle" xml:space="preserve"><value>Designvorschau</value></data>
+  <data name="Close" xml:space="preserve"><value>Schließen</value></data>
+  <data name="Minimize" xml:space="preserve"><value>Minimieren</value></data>
+  <data name="On" xml:space="preserve"><value>Hotspot eingeschaltet</value></data>
+  <data name="Off" xml:space="preserve"><value>Hotspot ausgeschaltet</value></data>
+  <data name="Unknown" xml:space="preserve"><value>Status unbekannt</value></data>
+  <data name="Transition" xml:space="preserve"><value>Verbindung wird geändert …</value></data>
+  <data name="Reading" xml:space="preserve"><value>Status wird geprüft …</value></data>
+  <data name="Starting" xml:space="preserve"><value>Wird eingeschaltet …</value></data>
+  <data name="Stopping" xml:space="preserve"><value>Wird ausgeschaltet …</value></data>
+  <data name="Saving" xml:space="preserve"><value>Wird gespeichert …</value></data>
+  <data name="MobileHotspot" xml:space="preserve"><value>MOBILER HOTSPOT</value></data>
+  <data name="Devices" xml:space="preserve"><value>Geräte</value></data>
+  <data name="ConnectedDevices" xml:space="preserve"><value>Verbundene Geräte</value></data>
+  <data name="Settings" xml:space="preserve"><value>Einstellungen</value></data>
+  <data name="Refresh" xml:space="preserve"><value>Aktualisieren</value></data>
+  <data name="PowerOn" xml:space="preserve"><value>Hotspot einschalten</value></data>
+  <data name="PowerOff" xml:space="preserve"><value>Hotspot ausschalten</value></data>
+  <data name="Details" xml:space="preserve"><value>Details</value></data>
+  <data name="Unavailable" xml:space="preserve"><value>Nicht verfügbar</value></data>
+  <data name="Simple" xml:space="preserve"><value>Einfach</value></data>
+  <data name="Advanced" xml:space="preserve"><value>Erweitert</value></data>
+  <data name="Network" xml:space="preserve"><value>NETZWERK</value></data>
+  <data name="NetworkName" xml:space="preserve"><value>Netzwerkname (SSID)</value></data>
+  <data name="NewPassword" xml:space="preserve"><value>Neues Passwort</value></data>
+  <data name="PasswordHelp" xml:space="preserve"><value>Leer lassen, um dein Passwort zu behalten.</value></data>
+  <data name="NetworkHelp" xml:space="preserve"><value>Netzwerkeinstellungen bei ausgeschaltetem Hotspot speichern.</value></data>
+  <data name="SaveNetwork" xml:space="preserve"><value>Netzwerk speichern</value></data>
+  <data name="Frequency" xml:space="preserve"><value>Frequenzband</value></data>
+  <data name="Automatic" xml:space="preserve"><value>Automatisch</value></data>
+  <data name="BandHelp" xml:space="preserve"><value>2,4 GHz: mehr Reichweite. 5 GHz: oft schneller. Nur unterstützte Bänder werden angezeigt.</value></data>
+  <data name="Application" xml:space="preserve"><value>ANWENDUNG</value></data>
+  <data name="StartWindows" xml:space="preserve"><value>Mit Windows starten</value></data>
+  <data name="StartHotspot" xml:space="preserve"><value>Hotspot beim App-Start einschalten</value></data>
+  <data name="ImmediateHelp" xml:space="preserve"><value>Diese Optionen werden sofort gespeichert. In dieser Demo nur im Arbeitsspeicher.</value></data>
+  <data name="Language" xml:space="preserve"><value>Sprache</value></data>
+  <data name="LanguageSaved" xml:space="preserve"><value>Sprache ausgewählt. Gilt beim nächsten Start.</value></data>
+  <data name="ChooseLanguage" xml:space="preserve"><value>Wähle deine Sprache</value></data>
+  <data name="Welcome" xml:space="preserve"><value>So, wie du es verstehst.</value></data>
+  <data name="Continue" xml:space="preserve"><value>Weiter</value></data>
+  <data name="Privacy" xml:space="preserve"><value>Gerätedaten bleiben im Arbeitsspeicher.</value></data>
+  <data name="NoDevices" xml:space="preserve"><value>Hier ist es noch ruhig.</value></data>
+  <data name="NoDevicesHelp" xml:space="preserve"><value>Verbundene Geräte erscheinen hier.</value></data>
+  <data name="Device" xml:space="preserve"><value>Gerät</value></data>
+  <data name="Message" xml:space="preserve"><value>Verbindungsdetails</value></data>
+  <data name="SampleConnection" xml:space="preserve"><value>Beispielnetz · keine echte Verbindung</value></data>
+  <data name="Ready" xml:space="preserve"><value>Alles Wichtige an einem Ort.</value></data>
+  <data name="NoInternetProfile" xml:space="preserve"><value>Keine Internetverbindung verfügbar. Prüfe die Verbindung in Windows.</value></data>
+  <data name="AccessDenied" xml:space="preserve"><value>Windows erlaubt diese Aktion auf diesem Computer nicht.</value></data>
+  <data name="NotSupported" xml:space="preserve"><value>Diese Funktion ist auf diesem Gerät nicht verfügbar.</value></data>
+  <data name="Busy" xml:space="preserve"><value>Eine Windows-Anfrage läuft noch. Bitte warten.</value></data>
+  <data name="TimedOut" xml:space="preserve"><value>Windows braucht länger als erwartet. Die Aktion kann noch laufen. Weitere Befehle bleiben bis zu ihrem Ende gesperrt.</value></data>
+  <data name="Cancelled" xml:space="preserve"><value>Das Warten wurde abgebrochen.</value></data>
+  <data name="ContextChanged" xml:space="preserve"><value>Die Verbindung hat sich geändert. Lade die Netzwerkeinstellungen neu.</value></data>
+  <data name="NativeFailure" xml:space="preserve"><value>Windows konnte die Anfrage nicht abschließen.</value></data>
+  <data name="InvalidSsid" xml:space="preserve"><value>Verwende 1–32 druckbare ASCII-Zeichen, ohne Leerzeichen am Anfang oder Ende.</value></data>
+  <data name="InvalidPassword" xml:space="preserve"><value>Verwende 8–63 druckbare ASCII-Zeichen oder lass das Feld leer.</value></data>
+  <data name="UnsupportedBand" xml:space="preserve"><value>Dieses Frequenzband wird nicht unterstützt.</value></data>
+  <data name="MustTurnOff" xml:space="preserve"><value>Schalte den Hotspot vor dem Speichern aus.</value></data>
+  <data name="Enabled" xml:space="preserve"><value>Der Hotspot ist eingeschaltet.</value></data>
+  <data name="Disabled" xml:space="preserve"><value>Der Hotspot ist ausgeschaltet.</value></data>
+  <data name="AlreadyInRequestedState" xml:space="preserve"><value>Der gewünschte Zustand ist bereits aktiv.</value></data>
+  <data name="SettingsSaved" xml:space="preserve"><value>Netzwerkeinstellungen gespeichert.</value></data>
+  <data name="PreferencesReadFailed" xml:space="preserve"><value>Einstellungen konnten nicht gelesen werden. Automatischer Hotspotstart bleibt aus.</value></data>
+  <data name="PreferencesSaveFailed" xml:space="preserve"><value>Einstellungen konnten nicht gespeichert werden.</value></data>
+  <data name="StartupFailed" xml:space="preserve"><value>Windows-Autostart konnte nicht eingerichtet werden.</value></data>
+  <data name="MobileBroadbandDeviceOff" xml:space="preserve"><value>Die mobile Internetverbindung ist ausgeschaltet.</value></data>
+  <data name="WiFiDeviceOff" xml:space="preserve"><value>Aktiviere WLAN in Windows.</value></data>
+  <data name="EntitlementCheckTimeout" xml:space="preserve"><value>Der Mobilfunkanbieter antwortet noch nicht.</value></data>
+  <data name="EntitlementCheckFailure" xml:space="preserve"><value>Der Mobilfunkanbieter erlaubt keine Internetfreigabe.</value></data>
+  <data name="OperationInProgress" xml:space="preserve"><value>Windows ändert den Hotspot-Status.</value></data>
+  <data name="BluetoothDeviceOff" xml:space="preserve"><value>Ein benötigtes Bluetooth-Gerät ist ausgeschaltet.</value></data>
+  <data name="NetworkLimitedConnectivity" xml:space="preserve"><value>Der Internetzugriff ist eingeschränkt.</value></data>
+  <data name="RadioRestriction" xml:space="preserve"><value>Dieses Band ist auf dem Gerät nicht erlaubt.</value></data>
+  <data name="BandInterference" xml:space="preserve"><value>Das Frequenzband kollidiert mit der bestehenden Verbindung.</value></data>
+  <data name="Scenario" xml:space="preserve"><value>Demo-Szenario</value></data>
+  <data name="Compact" xml:space="preserve"><value>Kompaktes Fenster</value></data>
+  <data name="PreviewHelp" xml:space="preserve"><value>Nur Beispieldaten. Die Schaltflächen simulieren Aktionen und steuern deinen Hotspot nicht.</value></data>
+  <data name="Apply" xml:space="preserve"><value>Anzeigen</value></data>
+  <data name="FirstLaunch" xml:space="preserve"><value>Erster Start</value></data>
+  <data name="Empty" xml:space="preserve"><value>Keine verbundenen Geräte</value></data>
+  <data name="Pending" xml:space="preserve"><value>Windows arbeitet noch …</value></data>
+  <data name="TooSmall" xml:space="preserve"><value>Der Bildschirmbereich ist zu klein. Mindestens 400 × 360 logische Pixel sind erforderlich.</value></data>
+  <data name="SamplePhone" xml:space="preserve"><value>Demo-Handy</value></data>
+  <data name="SampleLaptop" xml:space="preserve"><value>Demo-Laptop</value></data>
+  <data name="Selected" xml:space="preserve"><value>Ausgewählt</value></data>
+  <data name="MemorySaved" xml:space="preserve"><value>Für diese Demo-Sitzung gespeichert.</value></data>
+  <data name="PreviewPanel" xml:space="preserve"><value>Vorschau-Steuerung</value></data>
+  <data name="ImmediateHelpReal" xml:space="preserve"><value>Diese Optionen werden sofort für dein Benutzerkonto gespeichert.</value></data>
+  <data name="PreferencesSaved" xml:space="preserve"><value>App-Einstellungen gespeichert.</value></data>
+  <data name="StartupRepair" xml:space="preserve"><value>Die Autostart-Verknüpfung zeigt woanders hin. Wähle „Mit Windows starten“, um sie zu reparieren.</value></data>
+  <data name="StartupUnavailable" xml:space="preserve"><value>Die Autostart-Verknüpfung kann gerade nicht geprüft werden.</value></data>
+  <data name="TrayOpen" xml:space="preserve"><value>Öffnen</value></data>
+  <data name="TrayExit" xml:space="preserve"><value>Beenden</value></data>
+  <data name="TrayOn" xml:space="preserve"><value>Hotspot Control – Eingeschaltet</value></data>
+  <data name="TrayOff" xml:space="preserve"><value>Hotspot Control – Ausgeschaltet</value></data>
+  <data name="TrayUnknown" xml:space="preserve"><value>Hotspot Control – Status unbekannt</value></data>
+  <data name="TrayTransition" xml:space="preserve"><value>Hotspot Control – Status wird geändert</value></data>
+  <data name="StartupPreparing" xml:space="preserve"><value>Automatischer Hotspotstart wird vorbereitet …</value></data>
+  <data name="StartupWaiting" xml:space="preserve"><value>Warten auf die Verbindung … Versuch {0} von {1}.</value></data>
+  <data name="ProbeAdmin" xml:space="preserve"><value>Für eine aussagekräftige Prüfung ohne Administratorrechte starten.</value></data>
+  <data name="ProbeTitle" xml:space="preserve"><value>Hotspot Control — nur lesende Prüfung</value></data>
+  <data name="ProbeState" xml:space="preserve"><value>Hotspot: {0}</value></data>
+  <data name="ProbeDevices" xml:space="preserve"><value>Verbundene Geräte: {0}</value></data>
+</root>

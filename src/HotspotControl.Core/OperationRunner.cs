@@ -7,6 +7,7 @@ public sealed class OperationRunner
 {
     private readonly SemaphoreSlim gate = new(1, 1);
     public bool IsBusy => gate.CurrentCount == 0;
+    public event EventHandler? BecameIdle;
 
     public async Task<T> RunAsync<T>(Func<Task<T>> operation, TimeSpan timeout, CancellationToken cancellationToken = default)
     {
@@ -15,7 +16,15 @@ public sealed class OperationRunner
         var pending = Task.Run(async () =>
         {
             try { return await operation().ConfigureAwait(false); }
-            finally { gate.Release(); }
+            finally
+            {
+                gate.Release();
+                foreach (EventHandler subscriber in BecameIdle?.GetInvocationList().Cast<EventHandler>() ?? [])
+                {
+                    try { subscriber(this, EventArgs.Empty); }
+                    catch { /* A UI observer cannot change the operation result. */ }
+                }
+            }
         });
         // Observe a late failure even if the caller has already stopped waiting.
         _ = pending.ContinueWith(task => _ = task.Exception,

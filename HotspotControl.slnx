@@ -4,6 +4,9 @@
     <Project Path="src/HotspotControl.Windows/HotspotControl.Windows.csproj" />
     <Project Path="src/HotspotControl.App/HotspotControl.App.csproj" />
     <Project Path="src/HotspotControl.Probe/HotspotControl.Probe.csproj" />
+    <Project Path="src/HotspotControl.Localization/HotspotControl.Localization.csproj" />
+    <Project Path="src/HotspotControl.Presentation/HotspotControl.Presentation.csproj" />
+    <Project Path="src/HotspotControl.Preview/HotspotControl.Preview.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/HotspotControl.Checks/HotspotControl.Checks.csproj" />

@@ -1,7 +1,8 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows;
-using HotspotControl.Windows;
+using HotspotControl.Core.Contracts;
+using HotspotControl.Localization;
 
 namespace HotspotControl.App;
 
@@ -10,22 +11,37 @@ internal sealed class TrayController : IDisposable
     private readonly System.Windows.Forms.NotifyIcon tray;
     private readonly Icon activeIcon;
     private readonly Icon inactiveIcon;
-    private readonly MainWindow window;
+    private readonly Window window;
+    private readonly TextCatalog text;
+    private readonly Action restore;
     private bool disposed;
     [DllImport("user32.dll")] private static extern bool DestroyIcon(IntPtr handle);
 
-    public TrayController(MainWindow window)
+    public TrayController(Window window, TextCatalog text, Action restore)
     {
-        this.window = window;
-        activeIcon = CreateIcon(true);
-        inactiveIcon = CreateIcon(false);
-        tray = new System.Windows.Forms.NotifyIcon { Icon = inactiveIcon, Text = "Hotspot Control – Status unbekannt", Visible = true };
-        var menu = new System.Windows.Forms.ContextMenuStrip();
-        menu.Items.Add("Öffnen", null, (_, _) => Restore());
-        menu.Items.Add("Beenden", null, (_, _) => window.Close());
-        tray.ContextMenuStrip = menu;
-        tray.MouseClick += (_, e) => { if (e.Button == System.Windows.Forms.MouseButtons.Left) Restore(); };
-        window.StateChanged += OnStateChanged;
+        this.window = window; this.text = text; this.restore = restore;
+        Icon? active = null, inactive = null;
+        System.Windows.Forms.NotifyIcon? notify = null;
+        System.Windows.Forms.ContextMenuStrip? menu = null;
+        try
+        {
+            active = CreateIcon(true);
+            inactive = CreateIcon(false);
+            notify = new System.Windows.Forms.NotifyIcon { Icon = inactive, Text = text["TrayUnknown"], Visible = true };
+            menu = new System.Windows.Forms.ContextMenuStrip();
+            menu.Items.Add(text["TrayOpen"], null, (_, _) => Restore());
+            menu.Items.Add(text["TrayExit"], null, (_, _) => window.Close());
+            notify.ContextMenuStrip = menu;
+            notify.MouseClick += (_, e) => { if (e.Button == System.Windows.Forms.MouseButtons.Left) Restore(); };
+            activeIcon = active; inactiveIcon = inactive; tray = notify;
+            window.StateChanged += OnStateChanged;
+        }
+        catch
+        {
+            if (notify is not null) notify.Visible = false;
+            notify?.Dispose(); menu?.Dispose(); active?.Dispose(); inactive?.Dispose();
+            throw;
+        }
     }
 
     private void OnStateChanged(object? sender, EventArgs e)
@@ -34,7 +50,7 @@ internal sealed class TrayController : IDisposable
     }
     private void Restore()
     {
-        window.RestoreFromTray();
+        restore();
     }
     public void Update(HotspotState state)
     {
@@ -42,10 +58,10 @@ internal sealed class TrayController : IDisposable
         tray.Icon = state == HotspotState.On ? activeIcon : inactiveIcon;
         tray.Text = state switch
         {
-            HotspotState.On => "Hotspot Control – Eingeschaltet",
-            HotspotState.Off => "Hotspot Control – Ausgeschaltet",
-            HotspotState.InTransition => "Hotspot Control – Status wird geändert",
-            _ => "Hotspot Control – Status unbekannt"
+            HotspotState.On => text["TrayOn"],
+            HotspotState.Off => text["TrayOff"],
+            HotspotState.InTransition => text["TrayTransition"],
+            _ => text["TrayUnknown"]
         };
     }
     private static Icon CreateIcon(bool active)

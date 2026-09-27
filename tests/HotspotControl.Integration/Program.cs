@@ -1,52 +1,54 @@
+using System.Globalization;
 using System.Security.Principal;
+using HotspotControl.Core.Contracts;
+using HotspotControl.Localization;
 using HotspotControl.Windows;
 
+var text = new TextCatalog(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
 using var identity = WindowsIdentity.GetCurrent();
 if (new WindowsPrincipal(identity).IsInRole(WindowsBuiltInRole.Administrator))
 {
-    Console.WriteLine("Bitte ohne Administratorrechte prüfen.");
-    return 3;
+    Console.WriteLine(text["ProbeAdmin"]); return 3;
 }
-var service = new HotspotService();
+var service = new WindowsHotspotService();
 var original = await service.ReadAsync();
-var stateLabel = original.State switch { HotspotState.On => "Eingeschaltet", HotspotState.Off => "Ausgeschaltet", HotspotState.InTransition => "Status wird geändert", _ => "Unbekannt" };
-Console.WriteLine($"Lesezugriff: Zustand {stateLabel}; Geräte {original.Clients} / {original.MaximumClients}.");
-if (!args.Contains("--network-cycle")) return original.ExitCode;
-if (original.State is not (HotspotState.On or HotspotState.Off))
-    throw new InvalidOperationException("Kein eindeutiger Ausgangszustand. Keine Änderung.");
-var settings = await service.ReadSettingsAsync();
-bool wasOn = original.State == HotspotState.On;
+Console.WriteLine(text[original.Result.Code.ToString()]);
+if (!args.Contains("--network-cycle")) return original.Result.Success ? 0 : 5;
+if (original.Data?.State is not (HotspotState.On or HotspotState.Off))
+    throw new InvalidOperationException(text["Unknown"]);
+var network = await service.ReadSettingsAsync();
+if (network.Data is null) throw new InvalidOperationException(text[network.Result.Code.ToString()]);
+var settings = network.Data;
+bool wasOn = original.Data.State == HotspotState.On;
 try
 {
     var off = await service.SetEnabledAsync(false);
-    if (!off.Success) throw new InvalidOperationException(off.Message);
-    if ((await service.ReadAsync()).State != HotspotState.Off)
-        throw new InvalidOperationException("Ausschalten wurde nicht bestätigt.");
-    Console.WriteLine("OK: Ausschalten ohne Administratorrechte bestätigt.");
+    if (!off.Success) throw new InvalidOperationException(text[off.Code.ToString()]);
+    if ((await service.ReadAsync()).Data?.State != HotspotState.Off)
+        throw new InvalidOperationException(text["Unknown"]);
+    Console.WriteLine(text["Disabled"]);
 
-    // Reapply the same SSID and band; an empty password preserves the current one.
-    var saved = await service.SaveSettingsAsync(settings.Ssid, "", settings.Band);
-    if (!saved.Success) throw new InvalidOperationException(saved.Message);
+    // Empty password preserves the current passphrase.
+    var saved = await service.SaveSettingsAsync(settings.ContextToken, settings.Ssid, "", settings.Band);
+    if (!saved.Success) throw new InvalidOperationException(text[saved.Code.ToString()]);
     var reloaded = await service.ReadSettingsAsync();
-    if (settings.Ssid != reloaded.Ssid || settings.Band != reloaded.Band)
-        throw new InvalidOperationException("Einstellungen weichen vom Ausgangswert ab.");
-    Console.WriteLine("OK: Konfiguration gespeichert; Name und Band unverändert, Passwort beibehalten.");
+    if (reloaded.Data?.Ssid != settings.Ssid || reloaded.Data.Band != settings.Band)
+        throw new InvalidOperationException(text["ContextChanged"]);
+    Console.WriteLine(text["SettingsSaved"]);
 
     var on = await service.SetEnabledAsync(true);
-    if (!on.Success) throw new InvalidOperationException(on.Message);
-    if ((await service.ReadAsync()).State != HotspotState.On)
-        throw new InvalidOperationException("Einschalten wurde nicht bestätigt.");
-    Console.WriteLine("OK: Einschalten ohne Administratorrechte bestätigt.");
+    if (!on.Success) throw new InvalidOperationException(text[on.Code.ToString()]);
+    if ((await service.ReadAsync()).Data?.State != HotspotState.On)
+        throw new InvalidOperationException(text["Unknown"]);
+    Console.WriteLine(text["Enabled"]);
 }
 finally
 {
-    // A timed-out native request must finish before a restoration can start.
     using var deadline = new CancellationTokenSource(TimeSpan.FromSeconds(35));
-    while (service.IsBusy) await Task.Delay(200, deadline.Token);
+    while (service.OperationState != OperationState.Idle) await Task.Delay(200, deadline.Token);
     var restored = await service.SetEnabledAsync(wasOn);
-    if (!restored.Success) throw new InvalidOperationException("Wiederherstellung fehlgeschlagen: " + restored.Message);
+    if (!restored.Success) throw new InvalidOperationException(text[restored.Code.ToString()]);
     var final = await service.ReadAsync();
-    if (final.State != original.State) throw new InvalidOperationException("Ausgangszustand nicht wiederhergestellt.");
-    Console.WriteLine("OK: Ursprünglicher Hotspot-Zustand wiederhergestellt.");
+    if (final.Data?.State != original.Data.State) throw new InvalidOperationException(text["Unknown"]);
 }
 return 0;

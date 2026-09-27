@@ -1,5 +1,14 @@
 # Änderungen
 
+## 0.3.0 — 2026-09-27
+
+- Einheitliche WPF-Oberfläche für Hauptfenster, Geräte, Einstellungen und Meldungen.
+- Deutsch, Russisch und Englisch mit Sprachauswahl beim ersten Start.
+- Freigabezustand, Fehler und Traytexte in der gewählten Sprache.
+- Sicherere Wiederherstellung einer Einzelinstanz und begrenzte Windows-Aufträge.
+- Bestehende Autostarteinstellung aus 0.2.0 wird übernommen.
+- Fiktive Designvorschau und dreisprachige Produktdokumentation.
+
 ## 0.2.0 — 2026-09-09
 
 - Eigenständiges Windows-x64-Paket mit .NET-Laufzeit.

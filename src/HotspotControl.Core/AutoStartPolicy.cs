@@ -1,6 +1,8 @@
+using HotspotControl.Core.Contracts;
+
 namespace HotspotControl.Core;
 
-public sealed record StartAttempt(bool Success, bool Retryable, string Message);
+public sealed record StartAttempt(bool Success, bool Retryable, MessageCode Code);
 
 public static class AutoStartPolicy
 {
@@ -12,7 +14,7 @@ public static class AutoStartPolicy
         CancellationToken cancellationToken = default)
     {
         ArgumentOutOfRangeException.ThrowIfLessThan(maximumAttempts, 1);
-        StartAttempt result = new(false, false, "Automatischer Start nicht ausgeführt.");
+        StartAttempt result = new(false, false, MessageCode.Ready);
         for (int number = 1; number <= maximumAttempts; number++)
         {
             cancellationToken.ThrowIfCancellationRequested();

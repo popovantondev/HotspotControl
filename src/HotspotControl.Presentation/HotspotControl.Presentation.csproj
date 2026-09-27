@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0-windows10.0.26100.0</TargetFramework><UseWPF>true</UseWPF></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../HotspotControl.Core/HotspotControl.Core.csproj" />
+    <ProjectReference Include="../HotspotControl.Localization/HotspotControl.Localization.csproj" />
+    <Page Include="../HotspotControl.App/Assets/Scene.xaml" Link="Assets/Scene.xaml" />
+    <Resource Include="../HotspotControl.App/Assets/Hotspot.ico" Link="Assets/Hotspot.ico" />
+  </ItemGroup>
+</Project>
