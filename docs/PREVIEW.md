@@ -1,28 +1,15 @@
 # Hotspot Control — Design Preview
 
-Separate WPF-Demoversion mit Deutsch, Russisch und Englisch. Alle Netzwerkdaten
-sind erfunden. Die Vorschau steuert keinen echten Hotspot und schreibt weder
-Autostart-Einträge noch Benutzereinstellungen. Änderungen gelten nur im Speicher.
-Die bestehende Anwendung bleibt separat.
+Separate WPF demonstration app in German, Russian and English. All network data is fictional. The preview does not control a real hotspot or write startup entries or user preferences. Changes remain in memory. The production app is separate.
 
-## Starten
+## Run
 
-Mit dem .NET 10 SDK: `./Run-Preview.ps1`. Ein portables SDK kann über
-`-DotnetPath <Pfad zu dotnet.exe>` angegeben werden.
+Use the .NET 10 SDK: `./Run-Preview.ps1`. A portable SDK can be selected with `-DotnetPath <path to dotnet.exe>`.
 
-Eine eigenständig lauffähige x64-Version erstellt `./Publish-Preview.ps1`.
-Danach `artifacts/HotspotControl-DesignPreview-win-x64/HotspotControl.Preview.exe`
-starten. Ohne Sprachargument erscheint die Sprachauswahl bei jedem Demostart.
+Create a self-contained x64 app with `./Publish-Preview.ps1`. Then run `artifacts/HotspotControl-DesignPreview-win-x64/HotspotControl.Preview.exe`. Without a language argument, the language picker appears on each demo launch.
 
-Das separate Demo-Fenster wechselt Sprache, Szenario und kompakte Darstellung.
-Mit der Taste auf dem gezeichneten Laptop lässt sich der simulierte Hotspot
-umschalten. Geräte, Einstellungen und Fehler verwenden dieselbe Fenstergestaltung.
-Das Schließen des Hauptfensters beendet die Vorschau; ein echter Tray gehört
-nicht zu dieser Demoversion.
+The separate demo window can switch language, scenario and compact mode. The button on the illustrated laptop toggles the simulated hotspot. Devices, settings and errors use the same window style. Closing the main window exits the preview; this demo has no real tray icon.
 
-## Prüfen
+## Verify
 
-`./Run-Preview.ps1 -ExportPath artifacts/preview-renders` prüft Übersetzungen und
-Demoabläufe und exportiert WPF-Renderings aller Sprachen und Szenarien.
-Diese Bilder sind keine Desktop-Screenshots. Echte Windows-Skalierung,
-Tastaturbedienung und Fensterrahmen müssen zusätzlich am Bildschirm geprüft werden.
+`./Run-Preview.ps1 -ExportPath artifacts/preview-renders` checks translations and demo flows, then exports WPF renders for all languages and scenarios. These images are not desktop screenshots. Actual Windows scaling, keyboard interaction and native window chrome need additional on-screen checks.

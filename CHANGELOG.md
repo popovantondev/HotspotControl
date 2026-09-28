@@ -1,27 +1,26 @@
-# Änderungen
+# Changelog
 
 ## 0.3.0 — 2026-09-27
 
-- Einheitliche WPF-Oberfläche für Hauptfenster, Geräte, Einstellungen und Meldungen.
-- Deutsch, Russisch und Englisch mit Sprachauswahl beim ersten Start.
-- Freigabezustand, Fehler und Traytexte in der gewählten Sprache.
-- Sicherere Wiederherstellung einer Einzelinstanz und begrenzte Windows-Aufträge.
-- Bestehende Autostarteinstellung aus 0.2.0 wird übernommen.
-- Fiktive Designvorschau und dreisprachige Produktdokumentation.
+- Consistent WPF views for the main window, devices, settings and messages.
+- German, Russian and English, with a first-run language picker.
+- Hotspot status, errors and tray text in the selected language.
+- Safer single-instance restoration and bounded Windows operations.
+- Existing auto-enable preference from 0.2.0 is preserved during upgrade.
+- Fictional design preview and product documentation in three languages.
 
 ## 0.2.0 — 2026-09-09
 
-- Eigenständiges Windows-x64-Paket mit .NET-Laufzeit.
-- Genau eine Instanz; erneuter Start stellt das vorhandene Fenster wieder her.
-- Gemeinsame Serialisierung und begrenzte Wartezeiten für Windows-Abfragen.
-- Begrenzte Wiederholungen bei noch nicht bereiter Internetverbindung.
-- Kein erneuter Autostart beim Wiederherstellen des Fensters.
-- Ruhige Hintergrundaktualisierung, anhaltende Fehlermeldungen.
-- Autostartoptionen speichern auch bei Tastatur-/Automation-Bedienung korrekt.
-- Reale Prüfung von Aus-/Einschalten und unveränderter Konfigurationsspeicherung.
-- 36 Verhaltensprüfungen, UI-Prüfung, deutsche Dokumentation und lokale Git-Historie.
+- Standalone Windows x64 package with the .NET runtime.
+- Single instance; another launch restores the existing window.
+- Serialized Windows queries with bounded wait times.
+- Limited retries while the internet connection is not ready.
+- Restoring the window does not trigger auto-start again.
+- Quiet background refresh and persistent error messages.
+- Startup options save correctly with keyboard and automation input.
+- Practical checks of start/stop and unchanged configuration persistence.
+- 36 behavior checks, UI check, German documentation and local Git history.
 
-## Prototyp
+## Prototype
 
-Hotspotstatus, Ein-/Ausschalten, Einstellungen, Geräteliste, personalisierter
-WPF-Stil, mehrstufiges Wi-Fi-Icon, runde Fenster, Autostartoptionen und Tray.
+Hotspot status, start/stop, settings, device list, custom WPF style, multi-level Wi-Fi icon, rounded windows, startup options and tray.

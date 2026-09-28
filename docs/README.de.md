@@ -6,6 +6,22 @@ Hotspot Control ist eine kompakte Windows-11-Anwendung für den eingebauten mobi
 
 ![Hotspot Control mit fiktiven Demodaten](images/demo-main-de.png)
 
+## Bildschirmansichten
+
+Diese WPF-Vorschaubilder verwenden erfundene Daten. Gerätenamen zeigt die App so an, wie Windows sie liefert; Beispielnamen, Adressen und die Kennzeichnung `DEMO` sind keine Erklärungstexte. Die Sprachnamen im Sprachauswahldialog benennen die verfügbaren Optionen.
+
+| Hauptfenster | Verbundene Geräte |
+|---|---|
+| ![Hauptfenster](images/screenshots/de/main.png) | ![Verbundene Geräte](images/screenshots/de/devices.png) |
+
+| Einfache Einstellungen | Erweiterte Einstellungen |
+|---|---|
+| ![Einfache Einstellungen](images/screenshots/de/settings-simple.png) | ![Erweiterte Einstellungen](images/screenshots/de/settings-advanced.png) |
+
+| Sprachauswahl | Zeitüberschreitung |
+|---|---|
+| ![Sprachauswahl](images/screenshots/de/language-selection.png) | ![Meldung bei Zeitüberschreitung](images/screenshots/de/timeout-message.png) |
+
 ## Herunterladen und starten
 
 `HotspotControl-0.3.0-win-x64.zip` von [Releases](https://github.com/popovantondev/HotspotControl/releases) laden, den SHA-256-Wert mit der `.sha256`-Datei vergleichen und das gesamte ZIP entpacken. Im entpackten Ordner `HotspotControl.App.exe` starten. Weder Installation noch Administratorrechte oder eine separate .NET-Installation sind nötig. Zielsystem: Windows 11 ab 24H2, x64, mit geeignetem WLAN-Adapter. Windows- oder Organisationsrichtlinien können Funktionen einschränken. Bisher wurde nur auf dem Computer des Eigentümers praktisch getestet.
@@ -18,6 +34,6 @@ Der automatische Hotspotstart ist optional. Mit `HotspotControl.App.exe --no-aut
 
 Keine Cloud, Telemetrie oder lokalen Protokolle mit Netzwerknamen und Geräteadressen. Sprache und automatische Aktivierung stehen in `%LOCALAPPDATA%\HotspotControl\preferences.json`; die Windows-Start-Verknüpfung liegt im Autostartordner des Benutzers. Die App speichert keine Passwörter. In Fehlerberichten und Screenshots persönliche Daten entfernen. Das Bild oben nutzt erfundene Daten.
 
-Zum Bauen ist das .NET-10-SDK auf Windows nötig: `./Run-Checks.ps1` und `./Publish.ps1`. Mit `-DotnetPath` kann ein anderes SDK gewählt werden. Das Skript erstellt ZIP und SHA-256 lokal unter `artifacts/`; es lädt nichts hoch. [Architektur](ARCHITECTURE.md), [Versionshinweise](RELEASE_0.3.0.md), [Änderungen](../CHANGELOG.md).
+Zum Bauen ist das .NET-10-SDK auf Windows nötig: `./Run-Checks.ps1` und `./Publish.ps1`. Mit `-DotnetPath` kann ein anderes SDK gewählt werden. Das Skript erstellt ZIP und SHA-256 lokal unter `artifacts/`; es lädt nichts hoch.
 
-Der Quelltext hat keine Open-Source-Lizenz. Persönliche Nutzung der unveränderten Release-Binärdatei ist erlaubt. [Nutzungsrechte](../RIGHTS.md) · [Drittanbieterhinweise](../THIRD_PARTY_NOTICES.md).
+Der Quelltext hat keine Open-Source-Lizenz. Persönliche Nutzung der unveränderten Release-Binärdatei ist erlaubt. [Architektur](ARCHITECTURE.de.md) · [Versionshinweise](RELEASE_0.3.0.de.md) · [Vorschau](PREVIEW.de.md) · [Änderungen](../CHANGELOG.de.md) · [Nutzungsrechte](../RIGHTS.de.md) · [Drittanbieterhinweise](../THIRD_PARTY_NOTICES.de.md).
