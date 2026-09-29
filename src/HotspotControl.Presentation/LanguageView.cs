@@ -23,7 +23,7 @@ public sealed class LanguageView : StyledWindow
             var code = TextCatalog.Languages[i]; bool selected = code == SelectedLanguage;
             var button = Ui.Button(names[i] + (selected ? " ✓" : ""), () => { SelectedLanguage = code; Build(); }, true);
             button.HorizontalContentAlignment = HorizontalAlignment.Left;
-            button.BorderBrush = selected ? Ui.Accent : Ui.Brush("#3F6270");
+            button.BorderBrush = selected ? Ui.Accent : Ui.Brush("#DBE4F0");
             panel.Children.Add(Ui.Margin(button, bottom: 9));
         }
         panel.Children.Add(Ui.Margin(Ui.Button(language["Continue"], () => { Accepted = true; Close(); }), 12));
@@ -31,3 +31,4 @@ public sealed class LanguageView : StyledWindow
         SetBody(Ui.Scroll(new Border { Padding = new Thickness(26, 12, 26, 24), Child = panel }));
     }
 }
+
