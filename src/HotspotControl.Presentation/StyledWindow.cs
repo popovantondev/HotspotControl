@@ -35,7 +35,7 @@ public class StyledWindow : Window
         desiredWidth = width; desiredHeight = height;
         Width = width; Height = height; ResizeMode = ResizeMode.NoResize; WindowStyle = WindowStyle.None;
         WindowStartupLocation = WindowStartupLocation.CenterScreen; FontFamily = new FontFamily("Segoe UI"); FontSize = 14;
-        Foreground = Ui.Brush("#EBF8FB"); Background = Ui.Brush("#142D42"); UseLayoutRounding = true;
+        Foreground = Ui.Brush("#14253D"); Background = Ui.Brush("#F3F6FB"); UseLayoutRounding = true;
         Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("/HotspotControl.Presentation;component/Theme.xaml", UriKind.Relative) });
         Icon = BitmapFrame.Create(new Uri("pack://application:,,,/HotspotControl.Presentation;component/Assets/Hotspot.ico"));
         WindowChrome.SetWindowChrome(this, new WindowChrome { CaptionHeight = 40, ResizeBorderThickness = new Thickness(0), GlassFrameThickness = new Thickness(0), UseAeroCaptionButtons = false });
@@ -52,7 +52,7 @@ public class StyledWindow : Window
         captions.Children.Add(closeButton); header.Children.Add(captions);
         var grid = new Grid(); grid.RowDefinitions.Add(new() { Height = new GridLength(40) }); grid.RowDefinitions.Add(new());
         grid.Children.Add(header); Grid.SetRow(Body, 1); grid.Children.Add(Body);
-        RenderRoot = new Border { CornerRadius = new CornerRadius(16), BorderThickness = new Thickness(1), BorderBrush = Ui.Brush("#476472"), Background = new LinearGradientBrush(Color.FromRgb(20, 43, 63), Color.FromRgb(9, 102, 115), 90), Child = grid };
+        RenderRoot = new Border { CornerRadius = new CornerRadius(16), BorderThickness = new Thickness(1), BorderBrush = Ui.Brush("#DBE4F0"), Background = Ui.Brush("#F3F6FB"), Child = grid };
         Content = RenderRoot;
         SourceInitialized += (_, _) => { int round = 2; _ = DwmSetWindowAttribute(new WindowInteropHelper(this).Handle, 33, ref round, 4); Fit(); };
         DpiChanged += (_, _) => Dispatcher.BeginInvoke(Fit);
@@ -60,7 +60,7 @@ public class StyledWindow : Window
     }
     private Button Caption(string glyph, string label, Action action)
     {
-        var symbol = new System.Windows.Shapes.Path { Data = Geometry.Parse(glyph == "×" ? "M1,1 L11,11 M11,1 L1,11" : "M0,6 L12,6"), Stroke = Ui.Brush("#C3DFE7"), StrokeThickness = 1.5, Width = 12, Height = 12 };
+        var symbol = new System.Windows.Shapes.Path { Data = Geometry.Parse(glyph == "×" ? "M1,1 L11,11 M11,1 L1,11" : "M0,6 L12,6"), Stroke = Ui.Brush("#607087"), StrokeThickness = 1.5, Width = 12, Height = 12 };
         var button = new Button { Content = symbol, ToolTip = label, Style = (Style)FindResource("Caption") };
         AutomationProperties.SetName(button, label); WindowChrome.SetIsHitTestVisibleInChrome(button, true);
         button.Click += (_, _) => action(); return button;
@@ -101,3 +101,4 @@ public class StyledWindow : Window
     { normalBody = content; if (!showingTooSmall) Body.Content = content; }
     public void ShowChild(StyledWindow child) { child.Owner = this; child.WindowStartupLocation = WindowStartupLocation.CenterOwner; child.ShowDialog(); }
 }
+
