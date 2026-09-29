@@ -153,7 +153,7 @@ public sealed class SettingsView : StyledWindow
             var result = await service.SaveSettingsAsync(current.ContextToken, name.Text, password.Password, (int)selected.Tag, lifetime.Token);
             if (closed) return;
             ShowFeedback(T[result.Code.ToString()]);
-            feedback.Foreground = result.Success ? Ui.Accent : Ui.Brush("#FFD3A5");
+            feedback.Foreground = result.Success ? Ui.Accent : Ui.Brush("#9C5700");
             if (result.Success) password.Clear();
             if (result.Code == MessageCode.ContextChanged) { current = null; _ = InitializeAsync(); }
         }
@@ -162,3 +162,4 @@ public sealed class SettingsView : StyledWindow
         finally { if (!closed) UpdateAvailability(); }
     }
 }
+
