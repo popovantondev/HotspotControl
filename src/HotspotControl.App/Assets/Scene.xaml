@@ -1,16 +1,16 @@
 <Canvas xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Width="600" Height="470">
  <Canvas.Resources>
-  <LinearGradientBrush x:Key="Signal" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StartPoint="0,0" EndPoint="1,1"><GradientStop Color="#35F3E0"/><GradientStop Color="#19BACE" Offset="0.55"/><GradientStop Color="#7592F1" Offset="1"/></LinearGradientBrush>
+  <LinearGradientBrush x:Key="Signal" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StartPoint="0,0" EndPoint="1,1"><GradientStop Color="#1677FF"/><GradientStop Color="#4A91FF" Offset="0.55"/><GradientStop Color="#9BC5FF" Offset="1"/></LinearGradientBrush>
  </Canvas.Resources>
- <Path Fill="#244B63" Opacity="0.7" Data="M25,130 C20,112 34,98 53,101 C50,65 99,60 110,86 C123,40 187,54 187,94 C211,89 224,111 218,130 Z M414,70 C407,52 424,39 441,45 C444,9 496,10 503,43 C522,20 551,34 554,56 C577,54 586,65 583,78 Z"/>
- <Path Stroke="#F0EEC7" StrokeThickness="3" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M54,41 L55,41 M223,25 L224,25 M344,43 L345,43 M540,135 L541,135 M63,236 L64,236 M488,226 L489,226 M155,181 L156,181 M394,107 L395,107"/>
+ <Path Fill="#DCE7F4" Opacity="0.7" Data="M25,130 C20,112 34,98 53,101 C50,65 99,60 110,86 C123,40 187,54 187,94 C211,89 224,111 218,130 Z M414,70 C407,52 424,39 441,45 C444,9 496,10 503,43 C522,20 551,34 554,56 C577,54 586,65 583,78 Z"/>
+ <Path Stroke="#B8C9DF" StrokeThickness="3" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M54,41 L55,41 M223,25 L224,25 M344,43 L345,43 M540,135 L541,135 M63,236 L64,236 M488,226 L489,226 M155,181 L156,181 M394,107 L395,107"/>
  <Canvas><Canvas.RenderTransform><ScaleTransform ScaleX="0.78" ScaleY="0.78" CenterX="300" CenterY="110"/></Canvas.RenderTransform>
  <Path Stroke="{StaticResource Signal}" StrokeThickness="40" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M121,183 Q300,9 479,183 M191,251 Q300,141 409,251">
-  <Path.Effect><DropShadowEffect Color="#32DCD9" BlurRadius="23" ShadowDepth="0" Opacity="0.65"/></Path.Effect>
+  <Path.Effect><DropShadowEffect Color="#4A91FF" BlurRadius="23" ShadowDepth="0" Opacity="0.2"/></Path.Effect>
  </Path>
- <Ellipse Canvas.Left="269" Canvas.Top="280" Width="62" Height="62" Fill="{StaticResource Signal}"><Ellipse.Effect><DropShadowEffect Color="#32DCD9" BlurRadius="22" ShadowDepth="0" Opacity="0.65"/></Ellipse.Effect></Ellipse>
+ <Ellipse Canvas.Left="269" Canvas.Top="280" Width="62" Height="62" Fill="{StaticResource Signal}"><Ellipse.Effect><DropShadowEffect Color="#4A91FF" BlurRadius="22" ShadowDepth="0" Opacity="0.2"/></Ellipse.Effect></Ellipse>
  </Canvas>
- <Ellipse Canvas.Left="159" Canvas.Top="427" Width="282" Height="24" Fill="#071D35" Opacity="0.5"/>
+ <Ellipse Canvas.Left="159" Canvas.Top="427" Width="282" Height="24" Fill="#DBE4F0" Opacity="0.5"/>
  <!-- Keep the person and laptop button in the same coordinate system. -->
  <Canvas><Canvas.RenderTransform><ScaleTransform ScaleX="1.35" ScaleY="1.35" CenterX="300" CenterY="440"/></Canvas.RenderTransform>
  <Path Fill="#111B38" Data="M265,365 L264,319 C261,268 334,267 337,318 L337,366 Z"/>
@@ -22,7 +22,7 @@
  <Path Stroke="#EDAE99" StrokeThickness="9" StrokeStartLineCap="Round" Data="M240,436 L255,432 M345,435 L359,439"/>
  <Path Stroke="#FFFFFF" StrokeThickness="2" StrokeStartLineCap="Round" Data="M290,326 L294,326 M307,326 L311,326 M297,339 Q302,342 307,338"/>
  <Path Stroke="#A8D4E4" StrokeThickness="2" Data="M257,372 L344,372 L336,415 L264,415 Z">
-  <Path.Fill><LinearGradientBrush StartPoint="0,0" EndPoint="1,1"><GradientStop Color="#ADC5D8"/><GradientStop Color="#667DA6" Offset="1"/></LinearGradientBrush></Path.Fill>
+  <Path.Fill><LinearGradientBrush StartPoint="0,0" EndPoint="1,1"><GradientStop Color="#DCE8F8"/><GradientStop Color="#AFC8EB" Offset="1"/></LinearGradientBrush></Path.Fill>
  </Path>
  <Ellipse Canvas.Left="295" Canvas.Top="389" Width="10" Height="10" Fill="#F1FFFF"/>
  <Path Stroke="#C8E3EB" StrokeThickness="4" StrokeStartLineCap="Round" Data="M260,417 L342,417"/>
@@ -30,5 +30,6 @@
  <Path Stroke="#D7D9BB" StrokeThickness="3" Data="M417,409 C433,403 429,423 415,420"/>
  <Path Stroke="#78BBC7" StrokeThickness="4" Opacity="0.5" Data="M404,396 C418,383 393,380 408,368"/>
  <Button x:Name="LaptopPowerButton" Canvas.Left="284" Canvas.Top="379" Width="32" Height="28" Cursor="Hand" IsEnabled="False" ToolTip="Status wird abgefragt" AutomationProperties.Name="Hotspot umschalten">
-  <Button.Template><ControlTemplate TargetType="Button"><Border x:Name="PowerSurface" CornerRadius="9" Background="#113A51" BorderBrush="#63FFDF" BorderThickness="2"><Path Stroke="#83FFE8" StrokeThickness="3" StrokeStartLineCap="Round" StrokeEndLineCap="Round" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M10,1 L10,11 M4,5 A9,9 0 1 0 16,5"/></Border><ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="PowerSurface" Property="Background" Value="#176E7B"/></Trigger><Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="PowerSurface" Property="BorderBrush" Value="White"/></Trigger><Trigger Property="IsEnabled" Value="False"><Setter TargetName="PowerSurface" Property="Opacity" Value="0.4"/></Trigger></ControlTemplate.Triggers></ControlTemplate></Button.Template>
+  <Button.Template><ControlTemplate TargetType="Button"><Border x:Name="PowerSurface" CornerRadius="9" Background="#E6F0FF" BorderBrush="#9BC5FF" BorderThickness="2"><Path Stroke="#075DD1" StrokeThickness="3" StrokeStartLineCap="Round" StrokeEndLineCap="Round" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M10,1 L10,11 M4,5 A9,9 0 1 0 16,5"/></Border><ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="PowerSurface" Property="Background" Value="#CDE1FF"/></Trigger><Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="PowerSurface" Property="BorderBrush" Value="#075DD1"/></Trigger><Trigger Property="IsEnabled" Value="False"><Setter TargetName="PowerSurface" Property="Opacity" Value="0.4"/></Trigger></ControlTemplate.Triggers></ControlTemplate></Button.Template>
  </Button></Canvas></Canvas>
+
