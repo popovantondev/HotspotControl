@@ -1,5 +1,7 @@
 # Hotspot Control
 
+[User guide](https://popovantondev.github.io/HotspotControl/Guide-en.html)
+
 [Deutsch](docs/README.de.md) · [Русский](docs/README.ru.md) · English
 
 Hotspot Control is a compact Windows 11 app for the built-in Mobile Hotspot. It shows status and connected devices, controls sharing, and offers network and startup settings. The interface, errors and tray support German, Russian and English. Choose a language on first launch; later changes in Settings take effect after restarting.
