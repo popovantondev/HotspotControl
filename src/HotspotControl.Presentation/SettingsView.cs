@@ -162,4 +162,3 @@ public sealed class SettingsView : StyledWindow
         finally { if (!closed) UpdateAvailability(); }
     }
 }
-
