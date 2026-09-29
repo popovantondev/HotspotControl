@@ -43,4 +43,3 @@ public static class Ui
     public static ScrollViewer Scroll(UIElement body) => new()
     { Content = body, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled, Padding = new Thickness(0, 0, 6, 0) };
 }
-
