@@ -8,7 +8,7 @@ namespace HotspotControl.Presentation;
 public static class Ui
 {
     public static SolidColorBrush Brush(string color) => new((Color)ColorConverter.ConvertFromString(color));
-    public static readonly Brush Accent = Brush("#1677FF");
+    public static readonly Brush Accent = Brush("#075DD1");
     public static readonly Brush Muted = Brush("#607087");
     public static TextBlock Text(string text, double size = 14, Brush? color = null, bool bold = false) => new()
     {
