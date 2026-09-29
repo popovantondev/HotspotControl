@@ -186,4 +186,3 @@ public sealed class MainView : StyledWindow
         foreach (Window owned in OwnedWindows) if (owned.IsVisible) owned.Activate();
     }
 }
-
