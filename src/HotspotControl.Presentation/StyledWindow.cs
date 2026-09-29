@@ -101,4 +101,3 @@ public class StyledWindow : Window
     { normalBody = content; if (!showingTooSmall) Body.Content = content; }
     public void ShowChild(StyledWindow child) { child.Owner = this; child.WindowStartupLocation = WindowStartupLocation.CenterOwner; child.ShowDialog(); }
 }
-
