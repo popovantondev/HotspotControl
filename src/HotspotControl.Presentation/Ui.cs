@@ -8,17 +8,17 @@ namespace HotspotControl.Presentation;
 public static class Ui
 {
     public static SolidColorBrush Brush(string color) => new((Color)ColorConverter.ConvertFromString(color));
-    public static readonly Brush Accent = Brush("#66E4D5");
-    public static readonly Brush Muted = Brush("#A3C5D3");
+    public static readonly Brush Accent = Brush("#1677FF");
+    public static readonly Brush Muted = Brush("#607087");
     public static TextBlock Text(string text, double size = 14, Brush? color = null, bool bold = false) => new()
     {
-        Text = text, FontSize = size, Foreground = color ?? Brush("#EBF8FB"),
+        Text = text, FontSize = size, Foreground = color ?? Brush("#14253D"),
         FontWeight = bold ? FontWeights.SemiBold : FontWeights.Normal, TextWrapping = TextWrapping.Wrap
     };
     public static TextBlock Label(string text) => Text(text, 10, Muted, true);
     public static Button Button(string text, Action action, bool secondary = false)
     {
-        var button = new Button { Content = Text(text, 13, secondary ? Brush("#EBF8FB") : Brush("#0E3446"), true) };
+        var button = new Button { Content = Text(text, 13, secondary ? Brush("#14253D") : Brush("#FFFFFF"), true) };
         if (secondary) button.SetResourceReference(FrameworkElement.StyleProperty, "Secondary");
         AutomationProperties.SetName(button, text);
         button.Click += (_, _) => action();
@@ -26,7 +26,7 @@ public static class Ui
     }
     public static Border Card(UIElement content, int padding = 20) => new()
     {
-        Background = Brush("#142F43"), BorderBrush = Brush("#365A6A"), BorderThickness = new Thickness(1),
+        Background = Brush("#FFFFFF"), BorderBrush = Brush("#DBE4F0"), BorderThickness = new Thickness(1),
         CornerRadius = new CornerRadius(18), Padding = new Thickness(padding), Child = content
     };
     public static StackPanel Stack(params UIElement[] children)
@@ -43,3 +43,4 @@ public static class Ui
     public static ScrollViewer Scroll(UIElement body) => new()
     { Content = body, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled, Padding = new Thickness(0, 0, 6, 0) };
 }
+
