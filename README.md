@@ -44,4 +44,4 @@ See [architecture](docs/ARCHITECTURE.md), [release notes](docs/RELEASE_0.3.0.md)
 
 ## Rights
 
-This repository does not offer an open-source license. The owner permits personal use of an unmodified release binary; public source visibility does not grant permission to reuse or redistribute the source. See [rights](RIGHTS.md) and [third-party notices](THIRD_PARTY_NOTICES.md). Feedback is welcome in German, Russian or English through GitHub Issues.
+This repository does not offer an open-source license. The owner permits personal use of an unmodified release binary; public source visibility does not grant permission to reuse or redistribute the source. See [rights](RIGHTS.md) and [third-party notices](THIRD_PARTY_NOTICES.md). Feedback is welcome in German, Russian or English through [GitHub Issue Forms](https://github.com/popovantondev/HotspotControl/issues/new/choose).
