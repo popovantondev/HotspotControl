@@ -56,4 +56,3 @@ public sealed class DevicesView : StyledWindow
         finally { loading = false; if (!closed) refresh.IsEnabled = service.OperationState == OperationState.Idle; }
     }
 }
-
