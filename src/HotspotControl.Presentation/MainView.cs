@@ -51,7 +51,7 @@ public sealed class MainView : StyledWindow
         {
             power.Focusable = false;
             power = Ui.Button("", () => { }); power.Width = 44; power.Height = 44; power.Padding = new Thickness(0);
-            power.Content = new System.Windows.Shapes.Path { Data = System.Windows.Media.Geometry.Parse("M10,1 L10,11 M4,5 A9,9 0 1 0 16,5"), Stroke = Ui.Brush("#163A4A"), StrokeThickness = 2, Width = 22, Height = 23 };
+            power.Content = new System.Windows.Shapes.Path { Data = System.Windows.Media.Geometry.Parse("M10,1 L10,11 M4,5 A9,9 0 1 0 16,5"), Stroke = Ui.Brush("#075DD1"), StrokeThickness = 2, Width = 22, Height = 23 };
             root.Children.Add(Ui.Pair(heading, power));
         }
         else root.Children.Add(heading);
@@ -79,7 +79,7 @@ public sealed class MainView : StyledWindow
         note = Ui.Text("", 12, Ui.Muted); note.MaxHeight = compact ? 0 : 35; note.TextTrimming = TextTrimming.CharacterEllipsis;
         if (!compact)
         {
-            panel.Children.Add(new Border { Height = 1, Background = Ui.Brush("#365564"), Margin = new Thickness(0, 16, 0, 13) });
+            panel.Children.Add(new Border { Height = 1, Background = Ui.Brush("#DBE4F0"), Margin = new Thickness(0, 16, 0, 13) });
             panel.Children.Add(note);
         }
         if (!compact) panel.Children.Add(Ui.Margin(detail, 8));
@@ -117,7 +117,7 @@ public sealed class MainView : StyledWindow
             OperationState.Saving => "Saving", OperationState.PendingAfterTimeout => "Pending",
             _ => snapshot.State switch { HotspotState.On => "On", HotspotState.Off => "Off", HotspotState.InTransition => "Transition", _ => "Unknown" }
         };
-        status.Text = T[key]; status.Foreground = snapshot.State == HotspotState.On ? Ui.Accent : Ui.Brush("#B6D2DD");
+        status.Text = T[key]; status.Foreground = snapshot.State == HotspotState.On ? Ui.Accent : Ui.Brush("#607087");
         foreach (var shape in signal.Children.OfType<System.Windows.Shapes.Shape>())
         {
             var brush = snapshot.State == HotspotState.On ? signalBrush : Ui.Brush("#8BA1AF");
