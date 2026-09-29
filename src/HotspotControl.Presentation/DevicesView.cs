@@ -35,7 +35,7 @@ public sealed class DevicesView : StyledWindow
             var result = await service.ReadDevicesAsync(lifetime.Token);
             if (closed) return;
             list.Children.Clear();
-            if (!result.Result.Success) { list.Children.Add(Ui.Card(Ui.Text(T[result.Result.Code.ToString()], color: Ui.Brush("#FFD3A5")))); return; }
+            if (!result.Result.Success) { list.Children.Add(Ui.Card(Ui.Text(T[result.Result.Code.ToString()], color: Ui.Brush("#9C5700")))); return; }
             if (result.Data is not { Count: > 0 })
             {
                 list.Children.Add(Ui.Card(Ui.Stack(Ui.Margin(Ui.Text("◌", 62, Ui.Accent), 25, 20), Ui.Text(T["NoDevices"], 22, bold: true), Ui.Margin(Ui.Text(T["NoDevicesHelp"], 13, Ui.Muted), 10, 30)))); return;
@@ -56,3 +56,4 @@ public sealed class DevicesView : StyledWindow
         finally { loading = false; if (!closed) refresh.IsEnabled = service.OperationState == OperationState.Idle; }
     }
 }
+
