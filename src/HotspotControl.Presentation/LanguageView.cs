@@ -31,4 +31,3 @@ public sealed class LanguageView : StyledWindow
         SetBody(Ui.Scroll(new Border { Padding = new Thickness(26, 12, 26, 24), Child = panel }));
     }
 }
-
