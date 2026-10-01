@@ -1,6 +1,22 @@
 # Hotspot Control
 
-[Руководство пользователя](https://popovantondev.github.io/HotspotControl/Guide-ru.html)
+<!-- public-release:start -->
+Управляет мобильной точкой доступа Windows, показывает устройства и настройки сети.
+
+**Windows 11 24H2+ · x64 · Выпуск 0.3.0**
+
+**[Скачать](https://github.com/popovantondev/HotspotControl/releases/tag/v0.3.0)** · **[Инструкция](https://popovantondev.github.io/HotspotControl/Guide-ru.html)** · **[Сообщить об ошибке](https://github.com/popovantondev/HotspotControl/issues/new/choose)**
+
+**Требования и ограничения:** Совместимый Wi-Fi-адаптер; политики Windows или организации могут ограничивать операции. .NET входит в пакет.
+
+**Первые шаги:** Проверьте SHA-256, распакуйте ZIP полностью и откройте HotspotControl.App.exe. Отдельная установка .NET не нужна.
+
+**Файлы приложения:**
+
+- [`HotspotControl-0.3.0-win-x64.zip`](https://github.com/popovantondev/HotspotControl/releases/download/v0.3.0/HotspotControl-0.3.0-win-x64.zip)
+
+**Контрольные суммы:** [`HotspotControl-0.3.0-win-x64.zip.sha256`](https://github.com/popovantondev/HotspotControl/releases/download/v0.3.0/HotspotControl-0.3.0-win-x64.zip.sha256)
+<!-- public-release:end -->
 
 [English](../README.md) · [Deutsch](README.de.md) · Русский
 
@@ -26,7 +42,7 @@ Hotspot Control — компактное приложение для встро�
 
 ## Загрузка и запуск
 
-Скачайте `HotspotControl-0.3.0-win-x64.zip` из [Releases](https://github.com/popovantondev/HotspotControl/releases), сравните SHA-256 с приложенным файлом `.sha256` и полностью распакуйте архив. Запустите `HotspotControl.App.exe` из распакованной папки. Установка, права администратора и отдельная установка .NET не нужны. Целевая система: Windows 11 24H2 и новее, x64, с подходящим Wi-Fi-адаптером. Политики Windows или организации могут ограничивать функции. Практические испытания пока проводились только на компьютере владельца.
+Скачайте `HotspotControl-0.3.0-win-x64.zip` из [Releases](https://github.com/popovantondev/HotspotControl/releases/tag/v0.3.0), сравните SHA-256 с приложенным файлом `.sha256` и полностью распакуйте архив. Запустите `HotspotControl.App.exe` из распакованной папки. Установка, права администратора и отдельная установка .NET не нужны. Целевая система: Windows 11 24H2 и новее, x64, с подходящим Wi-Fi-адаптером. Политики Windows или организации могут ограничивать функции. Практические испытания пока проводились только на компьютере владельца.
 
 Кнопка питания на нарисованном ноутбуке включает и выключает раздачу; выключение отключает клиентов. **Устройства** показывает данные, полученные от Windows. **Настройки** позволяют изменить имя сети, пароль, поддерживаемый диапазон, язык и автозапуск для текущего пользователя. Пустое поле нового пароля сохраняет прежний пароль. Для изменения параметров сети точка доступа должна быть выключена. Сворачивание скрывает окно в трее; щелчок по значку возвращает его. Закрытие завершает приложение, не меняя состояние точки доступа. Зелёные волны означают включённую раздачу; серые — выключенную или неизвестное состояние.
 

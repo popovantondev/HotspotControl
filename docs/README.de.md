@@ -1,6 +1,22 @@
 # Hotspot Control
 
-[Benutzerhandbuch](https://popovantondev.github.io/HotspotControl/Guide-de.html)
+<!-- public-release:start -->
+Steuert den mobilen Windows-Hotspot und zeigt Geräte sowie Netzwerkeinstellungen.
+
+**Windows 11 24H2+ · x64 · Release 0.3.0**
+
+**[Herunterladen](https://github.com/popovantondev/HotspotControl/releases/tag/v0.3.0)** · **[Anleitung](https://popovantondev.github.io/HotspotControl/Guide-de.html)** · **[Fehler melden](https://github.com/popovantondev/HotspotControl/issues/new/choose)**
+
+**Voraussetzungen und Grenzen:** Kompatibler WLAN-Adapter; Windows- oder Organisationsrichtlinien können Funktionen einschränken. .NET ist enthalten.
+
+**Erste Schritte:** SHA-256 prüfen, ZIP vollständig entpacken und HotspotControl.App.exe öffnen. Keine separate .NET-Installation nötig.
+
+**App-Dateien:**
+
+- [`HotspotControl-0.3.0-win-x64.zip`](https://github.com/popovantondev/HotspotControl/releases/download/v0.3.0/HotspotControl-0.3.0-win-x64.zip)
+
+**Prüfsummen:** [`HotspotControl-0.3.0-win-x64.zip.sha256`](https://github.com/popovantondev/HotspotControl/releases/download/v0.3.0/HotspotControl-0.3.0-win-x64.zip.sha256)
+<!-- public-release:end -->
 
 [English](../README.md) · Deutsch · [Русский](README.ru.md)
 
@@ -26,7 +42,7 @@ Diese WPF-Vorschaubilder verwenden erfundene Daten. Gerätenamen zeigt die App s
 
 ## Herunterladen und starten
 
-`HotspotControl-0.3.0-win-x64.zip` von [Releases](https://github.com/popovantondev/HotspotControl/releases) laden, den SHA-256-Wert mit der `.sha256`-Datei vergleichen und das gesamte ZIP entpacken. Im entpackten Ordner `HotspotControl.App.exe` starten. Weder Installation noch Administratorrechte oder eine separate .NET-Installation sind nötig. Zielsystem: Windows 11 ab 24H2, x64, mit geeignetem WLAN-Adapter. Windows- oder Organisationsrichtlinien können Funktionen einschränken. Bisher wurde nur auf dem Computer des Eigentümers praktisch getestet.
+`HotspotControl-0.3.0-win-x64.zip` von [Releases](https://github.com/popovantondev/HotspotControl/releases/tag/v0.3.0) laden, den SHA-256-Wert mit der `.sha256`-Datei vergleichen und das gesamte ZIP entpacken. Im entpackten Ordner `HotspotControl.App.exe` starten. Weder Installation noch Administratorrechte oder eine separate .NET-Installation sind nötig. Zielsystem: Windows 11 ab 24H2, x64, mit geeignetem WLAN-Adapter. Windows- oder Organisationsrichtlinien können Funktionen einschränken. Bisher wurde nur auf dem Computer des Eigentümers praktisch getestet.
 
 Der Power-Knopf auf dem illustrierten Laptop schaltet den Hotspot ein oder aus; Ausschalten trennt verbundene Geräte. **Geräte** zeigt die von Windows gelieferten Angaben. **Einstellungen** bietet Netzwerkname, neues Passwort, unterstütztes Frequenzband, Sprache und benutzerbezogenen Autostart. Ein leeres Passwortfeld behält das bisherige Passwort. Netzwerkänderungen erfordern einen ausgeschalteten Hotspot. Minimieren blendet das Fenster in den Infobereich aus; ein Klick auf das Symbol stellt es wieder her. Schließen beendet die App, ohne den Windows-Hotspot zu ändern. Grüne Wellen bedeuten eingeschaltet; graue ausgeschaltet oder unbekannt.
 

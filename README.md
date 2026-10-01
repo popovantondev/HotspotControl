@@ -1,6 +1,22 @@
 # Hotspot Control
 
-[User guide](https://popovantondev.github.io/HotspotControl/Guide-en.html)
+<!-- public-release:start -->
+Control Windows Mobile Hotspot and view devices and network settings.
+
+**Windows 11 24H2+ · x64 · Release 0.3.0**
+
+**[Download](https://github.com/popovantondev/HotspotControl/releases/tag/v0.3.0)** · **[User guide](https://popovantondev.github.io/HotspotControl/Guide-en.html)** · **[Report a problem](https://github.com/popovantondev/HotspotControl/issues/new/choose)**
+
+**Requirements and limitations:** Compatible Wi-Fi adapter; Windows or organization policy may restrict operations. .NET is bundled.
+
+**First steps:** Verify SHA-256, extract the full ZIP and open HotspotControl.App.exe. No separate .NET installation is needed.
+
+**Application files:**
+
+- [`HotspotControl-0.3.0-win-x64.zip`](https://github.com/popovantondev/HotspotControl/releases/download/v0.3.0/HotspotControl-0.3.0-win-x64.zip)
+
+**Checksums:** [`HotspotControl-0.3.0-win-x64.zip.sha256`](https://github.com/popovantondev/HotspotControl/releases/download/v0.3.0/HotspotControl-0.3.0-win-x64.zip.sha256)
+<!-- public-release:end -->
 
 [Deutsch](docs/README.de.md) · [Русский](docs/README.ru.md) · English
 
@@ -26,7 +42,7 @@ These WPF preview renders use fictional data. The app displays device names as W
 
 ## Download and use
 
-Download `HotspotControl-0.3.0-win-x64.zip` from [Releases](https://github.com/popovantondev/HotspotControl/releases), verify its SHA-256 against the accompanying `.sha256` file, and extract the entire ZIP. Run `HotspotControl.App.exe` from the extracted folder. No installer, administrator rights, or separate .NET installation is required. Target: Windows 11 24H2 or newer, x64, with a compatible Wi-Fi adapter. Windows or organization policy may restrict operations. Practical testing so far is limited to the owner's computer.
+Download `HotspotControl-0.3.0-win-x64.zip` from [Releases](https://github.com/popovantondev/HotspotControl/releases/tag/v0.3.0), verify its SHA-256 against the accompanying `.sha256` file, and extract the entire ZIP. Run `HotspotControl.App.exe` from the extracted folder. No installer, administrator rights, or separate .NET installation is required. Target: Windows 11 24H2 or newer, x64, with a compatible Wi-Fi adapter. Windows or organization policy may restrict operations. Practical testing so far is limited to the owner's computer.
 
 The power button on the illustrated laptop starts or stops the hotspot. Stopping disconnects clients. **Devices** lists information provided by Windows. **Settings** changes the network name, password, supported band, language, and user-level startup options. Leave the new-password field empty to keep the current password. Network changes require the hotspot to be off. Minimize hides the app in the tray; click its icon to restore. Closing exits the app but leaves the Windows hotspot as it is. Green tray waves indicate sharing is on; gray waves indicate off or unknown.
 
