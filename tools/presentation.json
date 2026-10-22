@@ -1,0 +1,32 @@
+{
+  "folder": ".",
+  "shots": {
+    "ru": "docs/images/demo-main-ru.png",
+    "de": "docs/images/demo-main-de.png",
+    "en": "docs/images/demo-main-en.png"
+  },
+  "icon": "presentation-icon.ico",
+  "palette": {
+    "accent": "#086f83",
+    "tint": "#e4f5f7",
+    "hero": "#153c47",
+    "hero-end": "#246d7b"
+  },
+  "flow": {
+    "ru": [
+      "Проверить Wi-Fi адаптер",
+      "Настроить точку доступа",
+      "Посмотреть устройства"
+    ],
+    "de": [
+      "WLAN-Adapter prüfen",
+      "Hotspot einrichten",
+      "Geräte anzeigen"
+    ],
+    "en": [
+      "Check the Wi-Fi adapter",
+      "Configure the hotspot",
+      "View devices"
+    ]
+  }
+}
