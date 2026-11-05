@@ -6,6 +6,6 @@ Der eigenständige Windows-Build enthält Komponenten der Microsoft-.NET-10-Lauf
 - `licenses/dotnet-runtime-THIRD-PARTY-NOTICES.txt`
 - `licenses/windowsdesktop-runtime-LICENSE.txt`
 
-Die App verwendet von Windows bereitgestellte Netzwerk-APIs. Es werden weder externe Grafikdateien noch UI-Bibliotheken von Drittanbietern mitgeliefert. Das WLAN-Symbol wird von `tools/Build-Icon.ps1` erzeugt; Person, Laptop und Signal bestehen aus WPF-Vektorpfaden in `src/HotspotControl.App/Assets/Scene.xaml`. Die Grafiken wurden für dieses Projekt nach den visuellen Vorgaben des Eigentümers erstellt. Wenn die Lizenz des visuellen Referenzbilds unklar ist, sollte dessen Herkunft vor einer öffentlichen Veröffentlichung geprüft werden.
+Die App verwendet von Windows bereitgestellte Netzwerk-APIs. Es werden weder externe Grafikdateien noch UI-Bibliotheken von Drittanbietern mitgeliefert. Das WLAN-Symbol wird von `tools/Build-Icon.ps1` erzeugt; Person, Laptop und Signal bestehen aus WPF-Vektorpfaden in `src/HotspotControl.App/Assets/Scene.xaml`. Die Grafiken wurden für dieses Projekt nach den visuellen Vorgaben des Autors erstellt.
 
 Die genannten Laufzeitdateien gelten für die konkrete Build-Version. Bei einem Upgrade von .NET oder geänderten Paketabhängigkeiten müssen sie erneut geprüft werden. Siehe [Lizenzinformationen zu .NET](https://github.com/dotnet/core/blob/main/license-information.md).

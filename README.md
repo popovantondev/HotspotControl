@@ -1,63 +1,57 @@
 # Hotspot Control
 
 <!-- public-release:start -->
-Control Windows Mobile Hotspot and view devices and network settings.
+Steuert den mobilen Windows-Hotspot und zeigt Geräte sowie Netzwerkeinstellungen.
 
 **Windows 11 24H2+ · x64 · Release 0.3.0**
 
-**[Download](https://github.com/popovantondev/HotspotControl/releases/tag/v0.3.0)** · **[User guide](https://popovantondev.github.io/HotspotControl/Guide-en.html)** · **[Report a problem](https://github.com/popovantondev/HotspotControl/issues/new/choose)**
+**[Herunterladen](https://github.com/popovantondev/HotspotControl/releases/tag/v0.3.0)** · **[Anleitung](https://popovantondev.github.io/HotspotControl/Guide-de.html)** · **[Fehler melden](https://github.com/popovantondev/HotspotControl/issues/new/choose)**
 
-**Requirements and limitations:** Compatible Wi-Fi adapter; Windows or organization policy may restrict operations. .NET is bundled.
+**Voraussetzungen und Grenzen:** Kompatibler WLAN-Adapter; Windows- oder Organisationsrichtlinien können Funktionen einschränken. .NET ist enthalten.
 
-**First steps:** Verify SHA-256, extract the full ZIP and open HotspotControl.App.exe. No separate .NET installation is needed.
+**Erste Schritte:** SHA-256 prüfen, ZIP vollständig entpacken und HotspotControl.App.exe öffnen. Keine separate .NET-Installation nötig.
 
-**Application files:**
+**App-Dateien:**
 
 - [`HotspotControl-0.3.0-win-x64.zip`](https://github.com/popovantondev/HotspotControl/releases/download/v0.3.0/HotspotControl-0.3.0-win-x64.zip)
 
-**Checksums:** [`HotspotControl-0.3.0-win-x64.zip.sha256`](https://github.com/popovantondev/HotspotControl/releases/download/v0.3.0/HotspotControl-0.3.0-win-x64.zip.sha256)
+**Prüfsummen:** [`HotspotControl-0.3.0-win-x64.zip.sha256`](https://github.com/popovantondev/HotspotControl/releases/download/v0.3.0/HotspotControl-0.3.0-win-x64.zip.sha256)
 <!-- public-release:end -->
 
-[Deutsch](docs/README.de.md) · [Русский](docs/README.ru.md) · English
+[English](README.en.md) · Deutsch · [Русский](README.ru.md)
 
-Hotspot Control is a compact Windows 11 app for the built-in Mobile Hotspot. It shows status and connected devices, controls sharing, and offers network and startup settings. The interface, errors and tray support German, Russian and English. Choose a language on first launch; later changes in Settings take effect after restarting.
+Hotspot Control ist eine kompakte Windows-11-Anwendung für den eingebauten mobilen Hotspot. Sie zeigt Status und verbundene Geräte, schaltet die Freigabe und bietet Netzwerk- und Autostarteinstellungen. Oberfläche, Fehler und Tray unterstützen Deutsch, Russisch und Englisch. Beim ersten Start wird die Sprache gewählt; spätere Änderungen in den Einstellungen gelten nach einem Neustart.
 
-![Hotspot Control with fictional demo data](docs/images/demo-main-en.png)
+![Hotspot Control mit fiktiven Demodaten](docs/images/demo-main-de.png)
 
-## Screenshots
+## Bildschirmansichten
 
-These WPF preview renders use fictional data. The app displays device names as Windows provides them; sample names, addresses and the `DEMO` marker are not explanatory copy. Language names in the language picker identify available choices.
+Diese WPF-Vorschaubilder verwenden erfundene Daten. Gerätenamen zeigt die App so an, wie Windows sie liefert; Beispielnamen, Adressen und die Kennzeichnung `DEMO` sind keine Erklärungstexte. Die Sprachnamen im Sprachauswahldialog benennen die verfügbaren Optionen.
 
-| Main window | Connected devices |
+| Hauptfenster | Verbundene Geräte |
 |---|---|
-| ![Main window](docs/images/screenshots/en/main.png) | ![Connected devices](docs/images/screenshots/en/devices.png) |
+| ![Hauptfenster](docs/images/screenshots/de/main.png) | ![Verbundene Geräte](docs/images/screenshots/de/devices.png) |
 
-| Simple settings | Advanced settings |
+| Einfache Einstellungen | Erweiterte Einstellungen |
 |---|---|
-| ![Simple settings](docs/images/screenshots/en/settings-simple.png) | ![Advanced settings](docs/images/screenshots/en/settings-advanced.png) |
+| ![Einfache Einstellungen](docs/images/screenshots/de/settings-simple.png) | ![Erweiterte Einstellungen](docs/images/screenshots/de/settings-advanced.png) |
 
-| Language selection | Timeout message |
+| Sprachauswahl | Zeitüberschreitung |
 |---|---|
-| ![Language selection](docs/images/screenshots/en/language-selection.png) | ![Timeout message](docs/images/screenshots/en/timeout-message.png) |
+| ![Sprachauswahl](docs/images/screenshots/de/language-selection.png) | ![Meldung bei Zeitüberschreitung](docs/images/screenshots/de/timeout-message.png) |
 
-## Download and use
+## Herunterladen und starten
 
-Download `HotspotControl-0.3.0-win-x64.zip` from [Releases](https://github.com/popovantondev/HotspotControl/releases/tag/v0.3.0), verify its SHA-256 against the accompanying `.sha256` file, and extract the entire ZIP. Run `HotspotControl.App.exe` from the extracted folder. No installer, administrator rights, or separate .NET installation is required. Target: Windows 11 24H2 or newer, x64, with a compatible Wi-Fi adapter. Windows or organization policy may restrict operations. Practical testing so far is limited to the owner's computer.
+`HotspotControl-0.3.0-win-x64.zip` von [Releases](https://github.com/popovantondev/HotspotControl/releases/tag/v0.3.0) laden, den SHA-256-Wert mit der `.sha256`-Datei vergleichen und das gesamte ZIP entpacken. Im entpackten Ordner `HotspotControl.App.exe` starten. Weder Installation noch Administratorrechte oder eine separate .NET-Installation sind nötig. Zielsystem: Windows 11 ab 24H2, x64, mit geeignetem WLAN-Adapter. Windows- oder Organisationsrichtlinien können Funktionen einschränken. Bisher wurde nur auf dem Computer des Autors praktisch getestet.
 
-The power button on the illustrated laptop starts or stops the hotspot. Stopping disconnects clients. **Devices** lists information provided by Windows. **Settings** changes the network name, password, supported band, language, and user-level startup options. Leave the new-password field empty to keep the current password. Network changes require the hotspot to be off. Minimize hides the app in the tray; click its icon to restore. Closing exits the app but leaves the Windows hotspot as it is. Green tray waves indicate sharing is on; gray waves indicate off or unknown.
+Der Power-Knopf auf dem illustrierten Laptop schaltet den Hotspot ein oder aus; Ausschalten trennt verbundene Geräte. **Geräte** zeigt die von Windows gelieferten Angaben. **Einstellungen** bietet Netzwerkname, neues Passwort, unterstütztes Frequenzband, Sprache und benutzerbezogenen Autostart. Ein leeres Passwortfeld behält das bisherige Passwort. Netzwerkänderungen erfordern einen ausgeschalteten Hotspot. Minimieren blendet das Fenster in den Infobereich aus; ein Klick auf das Symbol stellt es wieder her. Schließen beendet die App, ohne den Windows-Hotspot zu ändern. Grüne Wellen bedeuten eingeschaltet; graue ausgeschaltet oder unbekannt.
 
-Auto-enable at app start is optional. To inspect the app without it, launch `HotspotControl.App.exe --no-auto-start`. A timed-out Windows operation may still finish later; check the current status before another change. Per-client speed limiting is not supported.
+Der automatische Hotspotstart ist optional. Mit `HotspotControl.App.exe --no-auto-start` lässt sich die App ohne diese Automatik öffnen. Ein Windows-Auftrag kann nach einem Timeout noch fertig werden; vor weiteren Änderungen den Status prüfen. Eine Geschwindigkeitsbegrenzung pro Gerät gibt es nicht.
 
-## Privacy
+## Datenschutz und Entwicklung
 
-The app has no cloud service, telemetry, or network-identity log. It stores language and the auto-enable choice in `%LOCALAPPDATA%\HotspotControl\preferences.json`; the Windows-start shortcut is in the current user's Startup folder. Passwords are not saved by this app. Remove personal network names, device addresses, and local paths from bug reports and screenshots. The image above uses fictional data.
+Keine Cloud, Telemetrie oder lokalen Protokolle mit Netzwerknamen und Geräteadressen. Sprache und automatische Aktivierung stehen in `%LOCALAPPDATA%\HotspotControl\preferences.json`; die Windows-Start-Verknüpfung liegt im Autostartordner des Benutzers. Die App speichert keine Passwörter. In Fehlerberichten und Screenshots persönliche Daten entfernen. Das Bild oben nutzt erfundene Daten.
 
-## Build and verify
+Zum Bauen ist das .NET-10-SDK auf Windows nötig: `./Run-Checks.ps1` und `./Publish.ps1`. Mit `-DotnetPath` kann ein anderes SDK gewählt werden. Das Skript erstellt ZIP und SHA-256 lokal unter `artifacts/`; es lädt nichts hoch.
 
-Use .NET 10 SDK on Windows. From this directory, run `./Run-Checks.ps1` and `./Publish.ps1`. Pass `-DotnetPath` to use another SDK executable. `Publish.ps1` creates a local self-contained ZIP and SHA-256 file under ignored `artifacts/`; it does not upload anything. The WPF design preview has no access to the real hotspot or preferences.
-
-See [architecture](docs/ARCHITECTURE.md), [release notes](docs/RELEASE_0.3.0.md), [design preview](docs/PREVIEW.md), and [changelog](CHANGELOG.md). Reports for 0.2.0 describe that historical version.
-
-## Rights
-
-This repository does not offer an open-source license. The owner permits personal use of an unmodified release binary; public source visibility does not grant permission to reuse or redistribute the source. See [rights](RIGHTS.md) and [third-party notices](THIRD_PARTY_NOTICES.md). Feedback is welcome in German, Russian or English through [GitHub Issue Forms](https://github.com/popovantondev/HotspotControl/issues/new/choose).
+Der Quelltext hat keine Open-Source-Lizenz. Persönliche Nutzung der unveränderten Release-Binärdatei ist erlaubt. [Architektur](docs/ARCHITECTURE.de.md) · [Versionshinweise](docs/RELEASE_0.3.0.de.md) · [Vorschau](docs/PREVIEW.de.md) · [Änderungen](CHANGELOG.de.md) · [Nutzungsrechte](RIGHTS.de.md) · [Drittanbieterhinweise](THIRD_PARTY_NOTICES.de.md).

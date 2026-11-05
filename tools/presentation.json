@@ -6,27 +6,43 @@
     "en": "docs/images/demo-main-en.png"
   },
   "icon": "presentation-icon.ico",
+  "stack": "C# · .NET · WPF",
   "palette": {
-    "accent": "#086f83",
-    "tint": "#e4f5f7",
-    "hero": "#153c47",
-    "hero-end": "#246d7b"
+    "light": {"accent": "#086f83", "tint": "#e4f5f7", "hero": "#153c47", "hero-end": "#246d7b"},
+    "dark": {"accent": "#4cc6d9", "tint": "#0f3640", "hero": "#0a2a33", "hero-end": "#1a5766"}
   },
   "flow": {
-    "ru": [
-      "Проверить Wi-Fi адаптер",
-      "Настроить точку доступа",
-      "Посмотреть устройства"
+    "ru": ["Проверить Wi-Fi адаптер", "Настроить точку доступа", "Посмотреть устройства"],
+    "de": ["WLAN-Adapter prüfen", "Hotspot einrichten", "Geräte anzeigen"],
+    "en": ["Check the Wi-Fi adapter", "Configure the hotspot", "View devices"]
+  },
+  "bento": {
+    "terminal": [
+      ["ps", "PS> Get-FileHash .\\{zip} -Algorithm SHA256"],
+      ["ps", "PS> Get-Content .\\{sha}"],
+      ["dim", {"de": "Beide Werte müssen übereinstimmen.", "en": "Both values must match.", "ru": "Оба значения должны совпадать."}],
+      ["ps", "PS> Expand-Archive .\\{zip} -DestinationPath .\\HotspotControl"],
+      ["ps", "PS> .\\HotspotControl\\{base}\\HotspotControl.App.exe"]
     ],
-    "de": [
-      "WLAN-Adapter prüfen",
-      "Hotspot einrichten",
-      "Geräte anzeigen"
-    ],
-    "en": [
-      "Check the Wi-Fi adapter",
-      "Configure the hotspot",
-      "View devices"
-    ]
+    "features": {
+      "de": ["Status und verbundene Geräte", "Hotspot ein- und ausschalten", "Netzwerkname und Passwort", "Frequenzband", "Autostart", "Infobereich (Tray)", "DE · EN · RU"],
+      "en": ["Status and connected devices", "Hotspot on and off", "Network name and password", "Frequency band", "Auto-start", "System tray", "DE · EN · RU"],
+      "ru": ["Статус и подключённые устройства", "Включение и выключение точки доступа", "Имя сети и пароль", "Диапазон частот", "Автозапуск", "Значок в трее", "RU · DE · EN"]
+    },
+    "third": {
+      "live": true,
+      "title": {"de": "Läuft lokal", "en": "Runs locally", "ru": "Работает локально"},
+      "text": {
+        "de": "Keine Cloud, keine Telemetrie. Einstellungen liegen in %LOCALAPPDATA%\\HotspotControl; Passwörter speichert die App nicht.",
+        "en": "No cloud, no telemetry. Settings stay in %LOCALAPPDATA%\\HotspotControl; the app does not store passwords.",
+        "ru": "Без облака и телеметрии. Настройки лежат в %LOCALAPPDATA%\\HotspotControl; пароли приложение не хранит."
+      },
+      "label": {"de": "Lokal · offline", "en": "Local · offline", "ru": "Локально · офлайн"}
+    },
+    "checks": {
+      "de": ["Build auf Windows per GitHub Actions", "Prüfung der Dokumentation und Links im CI", "SHA-256-Prüfsumme zum Download", "Versionsnummer und Änderungsprotokoll", "Oberfläche in Deutsch, Russisch und Englisch"],
+      "en": ["Windows build with GitHub Actions", "Documentation and link checks in CI", "SHA-256 checksum for the download", "Version number and changelog", "Interface in German, Russian and English"],
+      "ru": ["Сборка на Windows через GitHub Actions", "Проверка документации и ссылок в CI", "Контрольная сумма SHA-256 для загрузки", "Номер версии и журнал изменений", "Интерфейс на немецком, русском и английском"]
+    }
   }
 }

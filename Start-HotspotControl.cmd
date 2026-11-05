@@ -1,5 +1,5 @@
 @echo off
-set "APP=%~dp0artifacts\HotspotControl-0.2.0-win-x64\HotspotControl.App.exe"
+set "APP=%~dp0artifacts\HotspotControl-0.3.0-win-x64\HotspotControl.App.exe"
 if not exist "%APP%" (
   echo Das Programmpaket fehlt. Bitte zuerst Publish.ps1 ausfuehren.
   pause

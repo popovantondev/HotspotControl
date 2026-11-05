@@ -1,4 +1,4 @@
-param([string]$AppPath = (Join-Path $PSScriptRoot '..\..\artifacts\HotspotControl-0.2.0-win-x64\HotspotControl.App.exe'))
+param([string]$AppPath = (Join-Path $PSScriptRoot '..\..\artifacts\HotspotControl-0.3.0-win-x64\HotspotControl.App.exe'))
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName UIAutomationClient, UIAutomationTypes
 Add-Type @"
