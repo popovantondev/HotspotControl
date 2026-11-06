@@ -24,5 +24,5 @@ window.HSD_STRINGS = {
   Disabled: "Der Hotspot ist ausgeschaltet.", SettingsSaved: "Netzwerkeinstellungen gespeichert.",
   MemorySaved: "Für diese Demo-Sitzung gespeichert.",
   PreviewHelp: "Nur Beispieldaten. Die Schaltflächen simulieren Aktionen und steuern deinen Hotspot nicht.",
-  Selected: "Ausgewählt", Back: "Zurück", Tools: "Demo-Steuerung", Window: "Fenster von Hotspot Control (Demo)"
+  Selected: "Ausgewählt", LaptopHint: "Klicken Sie auf den Laptop, um den Hotspot ein- oder auszuschalten.", Back: "Zurück", Tools: "Demo-Steuerung", Window: "Fenster von Hotspot Control (Demo)"
 };

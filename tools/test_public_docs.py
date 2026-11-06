@@ -56,6 +56,13 @@ class PublicDocsTests(unittest.TestCase):
             self.assertEqual(html.count('strings-'),1,name)
             self.assertIn('class="hsd-static"',html,name)
             self.assertLess(html.index('strings-'+lang+'.js'),html.index('assets/hotspot-demo.js'),name)
+    def test_demo_laptop_is_the_only_switch(self):
+        root=Path(__file__).resolve().parents[1];js=(root/'assets/hotspot-demo.js').read_text(encoding='utf-8')
+        for gone in ('power-top',"'toggle'",'hsd-tool-main','toggleBtn'):self.assertNotIn(gone,js,gone)
+        self.assertIn("button('hsd-laptop'",js);self.assertIn("setAttribute('aria-label', powerLabel())",js);self.assertIn('is-dense',js)
+        for lang in ('ru','de','en'):
+            strings=(root/'assets/hotspot-demo'/('strings-'+lang+'.js')).read_text(encoding='utf-8')
+            self.assertIn('LaptopHint',strings,lang);self.assertIn('PowerOn',strings,lang);self.assertIn('PowerOff',strings,lang)
 class NetworkRetryTests(unittest.TestCase):
     def test_transient_connection_error_is_retried(self):
         import io

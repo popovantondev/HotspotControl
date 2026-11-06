@@ -20,5 +20,5 @@ window.HSD_STRINGS = {
   MustTurnOff: "Turn sharing off before saving.", Enabled: "Sharing is on.", Disabled: "Sharing is off.",
   SettingsSaved: "Network settings saved.", MemorySaved: "Saved for this demo session.",
   PreviewHelp: "Only sample data. Buttons simulate actions; they do not control your hotspot.", Selected: "Selected",
-  Back: "Back", Tools: "Demo controls", Window: "Hotspot Control window (demo)"
+  LaptopHint: "Click the laptop to turn sharing on or off.", Back: "Back", Tools: "Demo controls", Window: "Hotspot Control window (demo)"
 };

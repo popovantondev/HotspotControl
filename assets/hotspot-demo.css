@@ -35,15 +35,18 @@
 .hsd-wave{stroke:#5d7b8b}.hsd-wave-dot{fill:#5d7b8b}
 .is-on .hsd-wave{stroke:url(#hsd-signal)}.is-on .hsd-wave-dot{fill:url(#hsd-signal)}
 .is-on .hsd-signal{filter:drop-shadow(0 0 22px rgba(74,145,255,.65))}
-.hsd-power{display:grid;place-items:center;padding:0;border:2px solid #63ffdf;border-radius:10px;background:#113a51;color:#63ffdf;cursor:pointer;transition:background .15s,transform .15s}
-.hsd-power svg{width:50%;height:56%}
-.hsd-power:hover{background:#18506a}
-.hsd-power:active{transform:scale(.95)}
-.hsd-power-laptop{position:absolute;left:46.4%;top:76.1%;width:7.2%;height:8.1%;min-width:20px;min-height:18px;border-width:1.5px;border-radius:25%;transform:translate(0,0)}
-.hsd-power-laptop::after{content:"";position:absolute;inset:-9px}
-.is-on .hsd-power{box-shadow:0 0 12px rgba(99,255,223,.35)}
-.hsd-power.is-disabled,.hsd-primary.is-disabled,.hsd-secondary.is-disabled{opacity:.45;cursor:default}
-.hsd-power-top{display:none;flex:none;width:44px;height:44px;border-radius:14px}
+/* the laptop in the drawing is the switch: a transparent button over the laptop, the power mark sits on its screen */
+.hsd-laptop{position:absolute;left:40.2%;top:74%;width:19.8%;height:12.6%;display:grid;place-items:center;padding:0;border:0;border-radius:9px;background:transparent;color:#63ffdf;cursor:pointer;transition:background .15s,box-shadow .15s,transform .15s}
+.hsd-laptop::before{content:"";position:absolute;inset:-8px}
+.hsd-laptop-mark{display:grid;place-items:center;width:38%;aspect-ratio:1;min-width:20px;border:1.5px solid #63ffdf;border-radius:25%;background:#113a51;pointer-events:none}
+.hsd-laptop-mark svg{width:50%;height:56%}
+.hsd-laptop:hover,.hsd-laptop:focus-visible{background:rgba(99,255,223,.14);box-shadow:0 0 0 2px rgba(99,255,223,.55)}
+.hsd-laptop:active{transform:scale(.97)}
+.is-on .hsd-laptop-mark{box-shadow:0 0 12px rgba(99,255,223,.35)}
+.hsd-laptop::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);padding:5px 10px;border-radius:8px;background:#05222e;border:1px solid #63ffdf;color:#f4fbfd;font-size:12px;font-weight:600;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s}
+.hsd-laptop:hover::after,.hsd-laptop:focus-visible::after{opacity:1}
+.hsd-laptop.is-disabled,.hsd-primary.is-disabled,.hsd-secondary.is-disabled{opacity:.45;cursor:default}
+.hsd-laptop.is-disabled:hover{background:transparent;box-shadow:none}
 .hsd-card{flex:none;padding:18px 20px;border:1px solid var(--hsd-line);border-radius:16px;background:var(--hsd-card)}
 .hsd-caps-label{color:var(--hsd-muted);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .hsd-status{margin:8px 0 0;color:var(--hsd-accent);font-size:25px;font-weight:600;line-height:1.2}
@@ -71,7 +74,6 @@
 .is-compact .hsd-screen{padding:4px 18px 12px}
 .is-compact .hsd-title{font-size:23px}
 .is-compact .hsd-tagline,.is-compact .hsd-main .hsd-caps-label,.is-compact .hsd-rule,.is-compact .hsd-note,.is-compact .hsd-foot{display:none}
-.is-compact .hsd-power-top{display:grid}
 .is-compact .hsd-card{padding:12px 16px}
 .is-compact .hsd-status{margin-top:0;font-size:21px}
 .is-compact .hsd-row{margin-top:5px}
@@ -116,8 +118,40 @@
 .hsd-screen:not(.hsd-main){animation:hsd-in .16s ease-out}
 @keyframes hsd-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 
+/* dense layout of child screens (JS adds .is-dense when a screen is taller than the window): nothing scrolls */
+.hsd-pane[hidden]{display:none}
+.hsd-slot{min-height:2.7em}
+.is-dense .hsd-screen{padding:6px 16px 10px}
+.is-dense .hsd-childhead{margin:0 0 8px}
+.is-dense .hsd-childhead .hsd-caps-label{display:none}
+.is-dense .hsd-title-child{margin:0;font-size:20px}
+.is-dense .hsd-card{padding:10px 14px;border-radius:12px}
+.is-dense .hsd-screen>.hsd-card+.hsd-card,.is-dense .hsd-gap-top{margin-top:8px}
+.is-dense .hsd-tabs{margin:8px 0;gap:6px}
+.is-dense .hsd-tab{min-height:34px}
+.is-dense .hsd-pane-simple{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:10px}
+.is-dense .hsd-pane-simple .hsd-small{grid-column:1/-1;grid-row:3}
+.is-dense .hsd-pane-simple>:nth-child(1){grid-column:1;grid-row:1}
+.is-dense .hsd-pane-simple>:nth-child(2){grid-column:1;grid-row:2}
+.is-dense .hsd-pane-simple>:nth-child(3){grid-column:2;grid-row:1}
+.is-dense .hsd-pane-simple>:nth-child(4){grid-column:2;grid-row:2}
+.is-dense .hsd-field{margin:0 0 3px;font-size:11px}
+.is-dense .hsd-input{min-height:34px;padding:4px 10px;font-size:13px}
+.is-dense .hsd-pane .hsd-small{margin-top:6px}
+.is-dense .hsd-gap{margin:6px 0 8px}
+.is-dense .hsd-primary.hsd-wide{min-height:38px}
+.is-dense .hsd-check{margin:6px 0 0}
+.is-dense .hsd-list{gap:8px}
+.is-dense .hsd-device-names,.is-dense .hsd-mac{margin-top:6px}
+.is-dense .hsd-empty{padding:16px 18px}
+.is-dense .hsd-empty-mark{margin:0 0 6px;font-size:40px}
+.is-dense .hsd-childfoot{gap:8px;margin-top:8px}
+.is-dense .hsd-secondary.hsd-wide{min-height:38px}
+.is-dense .hsd-message-card{margin-bottom:10px}
+
 /* controls under the window (follow the page theme) */
-.hsd-tools{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:14px 0 0!important}
+.hsd-tools{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;min-height:44px;margin:14px 0 0!important}
+.hsd-hint{margin:10px 0 0!important}
 .hsd-tool{min-height:44px;padding:9px 16px;border:1px solid var(--ppk-line);border-radius:11px;background:var(--ppk-panel);color:var(--ppk-accent);font:inherit;font-weight:650;cursor:pointer}
 .hsd-tool:hover{border-color:var(--ppk-accent)}
 .hsd-tool.is-disabled{opacity:.5;cursor:default}
@@ -128,5 +162,5 @@
 .hsd-static{text-align:center}
 .hsd-static img{max-width:min(100%,420px);height:auto}
 @media(prefers-reduced-motion:reduce){
-  .hsd-screen,.hsd-power,.hsd-primary,.hsd-secondary{animation:none!important;transition:none!important}
+  .hsd-screen,.hsd-laptop,.hsd-primary,.hsd-secondary{animation:none!important;transition:none!important}
 }

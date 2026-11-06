@@ -80,7 +80,7 @@
   var APP_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="6" fill="#1b6f80"/><path d="M5,10 Q12,3.5 19,10 M8,13.4 Q12,9.8 16,13.4" fill="none" stroke="#9ff1e6" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17" r="1.7" fill="#9ff1e6"/></svg>';
 
   /* ---------- shell ---------- */
-  var win, body, backBtn, toggleBtn, closeBtn, minBtn, barBrand;
+  var win, body, backBtn, closeBtn, minBtn, barBrand;
   function buildShell() {
     root.textContent = '';
     var head = add(el('div', 'hsd-head'), el('span', 'hsd-label', T.Demo));
@@ -102,10 +102,10 @@
     var tools = el('div', 'hsd-tools', null, { role: 'group', 'aria-label': T.Tools });
     backBtn = button('hsd-tool', '← ' + T.Back, 'back', goMain);
     backBtn.hidden = true;
-    toggleBtn = button('hsd-tool hsd-tool-main', '', 'toggle', toggle);
-    add(tools, backBtn, toggleBtn);
+    add(tools, backBtn);
+    var hint = el('p', 'hsd-help hsd-hint', T.LaptopHint);
     var help = el('p', 'hsd-help', T.PreviewHelp);
-    add(root, head, win, tools, help);
+    add(root, head, win, tools, hint, help);
   }
 
   /* ---------- actions ---------- */
@@ -164,14 +164,14 @@
   function mainScreen() {
     var s = el('div', 'hsd-screen hsd-main');
     var title = el('div', 'hsd-title', 'Hotspot Control', { role: 'heading', 'aria-level': '3', tabindex: '-1' });
-    var top = button('hsd-power hsd-power-top', '', 'power-top', toggle);
-    top.innerHTML = POWER_ICON; top.setAttribute('aria-label', powerLabel()); top.title = powerLabel();
-    var head = add(el('div', 'hsd-headrow'), add(el('div', 'hsd-headtext'), title, el('div', 'hsd-tagline', T.Tagline)), top);
+    var head = add(el('div', 'hsd-headrow'), add(el('div', 'hsd-headtext'), title, el('div', 'hsd-tagline', T.Tagline)));
 
     var box = el('div', 'hsd-scene-box');
     box.innerHTML = SCENE;
-    var power = button('hsd-power hsd-power-laptop', '', 'power', toggle);
-    power.innerHTML = POWER_ICON; power.setAttribute('aria-label', powerLabel()); power.title = powerLabel();
+    /* the laptop in the girl's hands is the switch: one button over the drawing, with the power mark on its screen */
+    var power = button('hsd-laptop', '', 'power', toggle);
+    power.innerHTML = '<span class="hsd-laptop-mark">' + POWER_ICON + '</span>';
+    power.setAttribute('aria-label', powerLabel()); power.setAttribute('data-tip', powerLabel()); power.title = powerLabel();
     add(box, power);
     var scene = add(el('div', 'hsd-scene'), box);
 
@@ -189,7 +189,7 @@
     var bSettings = button('hsd-secondary', T.Settings, 'settings', function () { go('settings', 'settings'); });
     add(actions, bRefresh, bDevices, bSettings);
     if (state.busy) { /* like the program: no new commands while one runs (focus stays put, so aria-disabled) */
-      [bRefresh, bDevices, power, top].forEach(function (b) { b.setAttribute('aria-disabled', 'true'); b.classList.add('is-disabled'); });
+      [bRefresh, bDevices, power].forEach(function (b) { b.setAttribute('aria-disabled', 'true'); b.classList.add('is-disabled'); });
     }
     s.setAttribute('data-on', state.on ? '1' : '0');
     return add(s, head, scene, card, actions, el('div', 'hsd-foot', T.Demo));
@@ -228,10 +228,12 @@
     var s = el('div', 'hsd-screen hsd-settings');
     var feedback = el('div', 'hsd-feedback', '', { role: 'status', 'aria-live': 'polite' });
     feedback.hidden = true;
+    var netHelp = el('div', 'hsd-muted hsd-small', T.NetworkHelp);
     function say(text, kind) {
       state.feedback = { text: text, kind: kind };
-      feedback.textContent = text; feedback.hidden = false;
+      feedback.textContent = text; feedback.hidden = false; netHelp.hidden = true; /* the message takes the place of the hint: the card keeps its height */
       feedback.className = 'hsd-feedback is-' + (kind || 'ok');
+      if (win && s.isConnected) fitScreen();
     }
     /* tabs */
     var tSimple = button('hsd-tab', T.Simple, 'tab-simple', function () { selectTab('simple'); });
@@ -242,7 +244,7 @@
     var ssid = el('input', 'hsd-input', null, { id: nameId, type: 'text', maxlength: '32', autocomplete: 'off', spellcheck: 'false' });
     ssid.value = state.ssid;
     var pw = el('input', 'hsd-input', null, { id: pwId, type: 'password', maxlength: '63', autocomplete: 'new-password' });
-    var simple = add(el('div', 'hsd-pane'),
+    var simple = add(el('div', 'hsd-pane hsd-pane-simple'),
       el('label', 'hsd-field', T.NetworkName, { for: nameId }), ssid,
       el('label', 'hsd-field', T.NewPassword, { for: pwId }), pw,
       el('div', 'hsd-muted hsd-small', T.PasswordHelp));
@@ -259,6 +261,7 @@
       tSimple.setAttribute('aria-pressed', which === 'simple' ? 'true' : 'false');
       tAdv.setAttribute('aria-pressed', which === 'advanced' ? 'true' : 'false');
       tSimple.title = which === 'simple' ? T.Selected : ''; tAdv.title = which === 'advanced' ? T.Selected : '';
+      if (win && s.isConnected) fitScreen();
     }
     var saveBtn = button('hsd-primary hsd-wide', T.SaveNetwork, 'save', function () {
       if (state.busy) return;
@@ -274,8 +277,8 @@
         say(T.SettingsSaved, 'ok');
       });
     });
-    var network = add(el('div', 'hsd-card'), el('div', 'hsd-caps-label', T.Network), tabs, simple, adv,
-      el('div', 'hsd-muted hsd-small hsd-gap', T.NetworkHelp), saveBtn, feedback);
+    var slot = add(el('div', 'hsd-slot hsd-gap'), netHelp, feedback);
+    var network = add(el('div', 'hsd-card'), el('div', 'hsd-caps-label', T.Network), tabs, simple, adv, slot, saveBtn);
     selectTab(state.tab);
 
     function check(text, key, id) {
@@ -309,15 +312,13 @@
     var main = state.screen === 'main';
     backBtn.hidden = main;
     minBtn.hidden = !main;
-    toggleBtn.textContent = powerLabel();
-    toggleBtn.setAttribute('aria-disabled', state.busy ? 'true' : 'false');
-    toggleBtn.classList.toggle('is-disabled', !!state.busy);
     win.setAttribute('data-screen', state.screen);
     win.classList.toggle('is-on', state.on);
   }
   function render(moveFocus) {
     var active = document.activeElement, keep = (!moveFocus && active && body.contains(active)) ? active.getAttribute('data-id') : null;
     body.textContent = '';
+    resetFit();
     var screens = { main: mainScreen, devices: devicesScreen, settings: settingsScreen, message: messageScreen };
     var node = screens[state.screen]();
     body.appendChild(node);
@@ -341,7 +342,24 @@
   }
 
   /* the program switches to a compact layout below 650 px of window height */
-  function fit() { if (win) win.classList.toggle('is-compact', win.clientHeight < 650); }
+  function fit() { if (win) { win.classList.toggle('is-compact', win.clientHeight < 650); fitScreen(); } }
+
+  /* a child screen never scrolls: if it is taller than the window, first tighten the layout (is-dense),
+   * then shrink it a little (zoom, at most to 72%); both only grow until the next render of the screen */
+  var dense = false, zoom = 1;
+  function overflows() { return body.scrollHeight > body.clientHeight + 1; }
+  function fitScreen() {
+    var s = body && body.firstElementChild;
+    if (!s || state.screen === 'main') return;
+    if (!dense && overflows()) { dense = true; win.classList.add('is-dense'); }
+    if (dense && overflows()) {
+      for (var i = 0; i < 4 && overflows() && zoom > 0.72; i++) {
+        zoom = Math.max(0.72, zoom * (body.clientHeight / body.scrollHeight) * 0.99);
+        s.style.zoom = String(zoom);
+      }
+    }
+  }
+  function resetFit() { dense = false; zoom = 1; if (win) win.classList.remove('is-dense'); }
 
   buildShell();
   render(false);
