@@ -1,5 +1,7 @@
 # Hotspot Control
 
+[English](README.en.md) · Deutsch · [Русский](README.ru.md)
+
 <!-- public-release:start -->
 Steuert den mobilen Windows-Hotspot und zeigt Geräte sowie Netzwerkeinstellungen.
 
@@ -17,8 +19,6 @@ Steuert den mobilen Windows-Hotspot und zeigt Geräte sowie Netzwerkeinstellunge
 
 **Prüfsummen:** [`HotspotControl-0.3.0-win-x64.zip.sha256`](https://github.com/popovantondev/HotspotControl/releases/download/v0.3.0/HotspotControl-0.3.0-win-x64.zip.sha256)
 <!-- public-release:end -->
-
-[English](README.en.md) · Deutsch · [Русский](README.ru.md)
 
 Hotspot Control ist eine kompakte Windows-11-Anwendung für den eingebauten mobilen Hotspot. Sie zeigt Status und verbundene Geräte, schaltet die Freigabe und bietet Netzwerk- und Autostarteinstellungen. Oberfläche, Fehler und Tray unterstützen Deutsch, Russisch und Englisch. Beim ersten Start wird die Sprache gewählt; spätere Änderungen in den Einstellungen gelten nach einem Neustart.
 

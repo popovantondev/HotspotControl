@@ -1,5 +1,7 @@
 # Hotspot Control
 
+[English](README.en.md) · [Deutsch](README.md) · Русский
+
 <!-- public-release:start -->
 Управляет мобильной точкой доступа Windows, показывает устройства и настройки сети.
 
@@ -17,8 +19,6 @@
 
 **Контрольные суммы:** [`HotspotControl-0.3.0-win-x64.zip.sha256`](https://github.com/popovantondev/HotspotControl/releases/download/v0.3.0/HotspotControl-0.3.0-win-x64.zip.sha256)
 <!-- public-release:end -->
-
-[English](README.en.md) · [Deutsch](README.md) · Русский
 
 Hotspot Control — компактное приложение для встроенной мобильной точки доступа Windows 11. Оно показывает состояние и подключённые устройства, управляет раздачей и предлагает настройки сети и автозапуска. Интерфейс, ошибки и трей доступны на немецком, русском и английском. Язык выбирается при первом запуске; последующая смена в настройках применяется после перезапуска.
 
