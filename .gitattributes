@@ -9,3 +9,4 @@
 *.png binary
 *.ico binary
 assets/kit/* text eol=lf
+assets/hotspot-demo* text eol=lf
