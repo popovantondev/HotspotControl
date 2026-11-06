@@ -171,7 +171,7 @@
     /* the laptop in the girl's hands is the switch: one button over the drawing, with the power mark on its screen */
     var power = button('hsd-laptop', '', 'power', toggle);
     power.innerHTML = '<span class="hsd-laptop-mark">' + POWER_ICON + '</span>';
-    power.setAttribute('aria-label', powerLabel()); power.setAttribute('data-tip', powerLabel()); power.title = powerLabel();
+    power.setAttribute('aria-label', powerLabel()); power.setAttribute('data-tip', powerLabel());
     add(box, power);
     var scene = add(el('div', 'hsd-scene'), box);
 
