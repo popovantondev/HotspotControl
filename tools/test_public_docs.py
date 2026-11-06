@@ -47,6 +47,15 @@ class PublicDocsTests(unittest.TestCase):
                 self.assertRegex(html,r'<a\b[^>]*href="'+pages[lang]+r'"[^>]*>\s*'+labels[lang]+r'\s*</a>',str(guide))
                 self.assertTrue((folder/pages[lang]).is_file(),str(folder/pages[lang]))
         self.assertGreaterEqual(found,3)
+    def test_landing_has_live_demo(self):
+        root=Path(__file__).resolve().parents[1];pages={'de':'index.html','en':'index-en.html','ru':'index-ru.html'}
+        for lang,name in pages.items():
+            html=(root/name).read_text(encoding='utf-8')
+            self.assertIn('data-hotspot-demo',html,name)
+            self.assertIn('assets/hotspot-demo/strings-'+lang+'.js',html,name)
+            self.assertEqual(html.count('strings-'),1,name)
+            self.assertIn('class="hsd-static"',html,name)
+            self.assertLess(html.index('strings-'+lang+'.js'),html.index('assets/hotspot-demo.js'),name)
 class NetworkRetryTests(unittest.TestCase):
     def test_transient_connection_error_is_retried(self):
         import io
