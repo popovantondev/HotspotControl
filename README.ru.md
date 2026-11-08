@@ -1,10 +1,25 @@
-<div align="center">
-  <img src="docs/images/app-icon.png" width="128" alt="Значок Hotspot Control">
-</div>
+<!-- ppk-readme:head:start -->
+<a href="https://popovantondev.github.io/HotspotControl/index-ru.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/header-ru-dark.9201120c.svg"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/header-ru-light.65908931.svg" width="880" height="188" alt="Hotspot Control — Управляет мобильной точкой доступа Windows. Windows 11 24H2+ · x64, Выпуск 0.3.0"></picture></a>
+<!-- ppk-readme:head:end -->
 
 # Hotspot Control
 
 **Русский** · [Deutsch](README.md) · [English](README.en.md)
+
+<!-- ppk-readme:body:start -->
+<p>
+<a href="https://github.com/popovantondev/HotspotControl/releases/tag/v0.3.0"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-download-ru-dark.4aefdc52.svg"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-download-ru-light.0da9fd85.svg" width="120" height="36" alt="Скачать"></picture></a>
+<a href="https://popovantondev.github.io/HotspotControl/index-ru.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-website-ru-dark.39f97162.svg"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-website-ru-light.9c3c1626.svg" width="92" height="36" alt="Сайт"></picture></a>
+<a href="https://popovantondev.github.io/HotspotControl/Guide-ru.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-guide-ru-dark.0c50c460.svg"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-guide-ru-light.1d321075.svg" width="161" height="36" alt="Руководство"></picture></a>
+<a href="https://popovantondev.github.io/HotspotControl/index-ru.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-demo-ru-dark.2a0b5a28.svg"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-demo-ru-light.f8d079d1.svg" width="261" height="36" alt="Попробовать в браузере"></picture></a>
+<a href="https://github.com/popovantondev/HotspotControl/issues/new/choose"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-bug-ru-dark.175df3f6.svg"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-bug-ru-light.da6f1a14.svg" width="234" height="36" alt="Сообщить об ошибке"></picture></a>
+</p>
+
+<p><a href="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/demo-main-ru.png"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/preview-ru-dark.4d2864ab.webp"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/preview-ru-light.5c1211ff.webp" width="880" height="516" alt="Интерфейс программы Hotspot Control"></picture></a><br>
+<sub><a href="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/demo-main-ru.png">Снимок целиком</a></sub></p>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/divider-dark.4be5c7a2.svg"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/divider-light.29b46755.svg" width="880" height="6" alt="Разделитель"></picture>
+<!-- ppk-readme:body:end -->
 
 <!-- public-release:start -->
 Управляет мобильной точкой доступа Windows, показывает устройства и настройки сети.
@@ -24,27 +39,23 @@
 **Контрольные суммы:** [`HotspotControl-0.3.0-win-x64.zip.sha256`](https://github.com/popovantondev/HotspotControl/releases/download/v0.3.0/HotspotControl-0.3.0-win-x64.zip.sha256)
 <!-- public-release:end -->
 
-**[Сайт](https://popovantondev.github.io/HotspotControl/index-ru.html)** · **[Попробовать в браузере](https://popovantondev.github.io/HotspotControl/index-ru.html)**
-
-![Hotspot Control с вымышленными демонстрационными данными](docs/images/demo-main-ru.png)
-
 Hotspot Control — компактное приложение для встроенной мобильной точки доступа Windows 11. Оно показывает состояние и подключённые устройства, управляет раздачей и предлагает настройки сети и автозапуска. Интерфейс, ошибки и трей доступны на немецком, русском и английском. Язык выбирается при первом запуске; последующая смена в настройках применяется после перезапуска.
 
 ## Скриншоты
 
 Эти рендеры WPF-превью используют вымышленные данные. Приложение показывает имена устройств так, как их передаёт Windows; примеры имён, адреса и отметка `DEMO` — это не поясняющие тексты интерфейса. Названия языков в окне выбора обозначают доступные варианты.
 
-| Главное окно | Подключённые устройства |
-|---|---|
-| ![Главное окно](docs/images/screenshots/ru/main.png) | ![Подключённые устройства](docs/images/screenshots/ru/devices.png) |
+<details>
+<summary>Показать кадры</summary>
 
-| Простые настройки | Расширенные настройки |
-|---|---|
-| ![Простые настройки](docs/images/screenshots/ru/settings-simple.png) | ![Расширенные настройки](docs/images/screenshots/ru/settings-advanced.png) |
+- [Главное окно](https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/screenshots/ru/main.png)
+- [Подключённые устройства](https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/screenshots/ru/devices.png)
+- [Простые настройки](https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/screenshots/ru/settings-simple.png)
+- [Расширенные настройки](https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/screenshots/ru/settings-advanced.png)
+- [Выбор языка](https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/screenshots/ru/language-selection.png)
+- [Сообщение о тайм-ауте](https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/screenshots/ru/timeout-message.png)
 
-| Выбор языка | Сообщение о тайм-ауте |
-|---|---|
-| ![Выбор языка](docs/images/screenshots/ru/language-selection.png) | ![Сообщение о тайм-ауте](docs/images/screenshots/ru/timeout-message.png) |
+</details>
 
 ## Загрузка и запуск
 

@@ -1,10 +1,25 @@
-<div align="center">
-  <img src="docs/images/app-icon.png" width="128" alt="Hotspot Control Symbol">
-</div>
+<!-- ppk-readme:head:start -->
+<a href="https://popovantondev.github.io/HotspotControl/index.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/header-de-dark.30878373.svg"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/header-de-light.fcd44e48.svg" width="880" height="188" alt="Hotspot Control — Steuert den mobilen Windows-Hotspot. Windows 11 24H2+ · x64, Release 0.3.0"></picture></a>
+<!-- ppk-readme:head:end -->
 
 # Hotspot Control
 
 [Русский](README.ru.md) · **Deutsch** · [English](README.en.md)
+
+<!-- ppk-readme:body:start -->
+<p>
+<a href="https://github.com/popovantondev/HotspotControl/releases/tag/v0.3.0"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-download-de-dark.d7205199.svg"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-download-de-light.df74b613.svg" width="171" height="36" alt="Herunterladen"></picture></a>
+<a href="https://popovantondev.github.io/HotspotControl/index.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-website-de-dark.7c7f1705.svg"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-website-de-light.b9807bf8.svg" width="129" height="36" alt="Webseite"></picture></a>
+<a href="https://popovantondev.github.io/HotspotControl/Guide-de.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-guide-de-dark.2175154e.svg"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-guide-de-light.92a3a39d.svg" width="134" height="36" alt="Anleitung"></picture></a>
+<a href="https://popovantondev.github.io/HotspotControl/index.html"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-demo-de-dark.1c0f8fb8.svg"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-demo-de-light.3f17dd87.svg" width="203" height="36" alt="Im Browser testen"></picture></a>
+<a href="https://github.com/popovantondev/HotspotControl/issues/new/choose"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-bug-de-dark.fc6e91f9.svg"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/btn-bug-de-light.4d4dafb8.svg" width="168" height="36" alt="Fehler melden"></picture></a>
+</p>
+
+<p><a href="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/demo-main-de.png"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/preview-de-dark.250f9831.webp"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/preview-de-light.65b49a94.webp" width="880" height="516" alt="Oberfläche von Hotspot Control"></picture></a><br>
+<sub><a href="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/demo-main-de.png">Ganzer Screenshot</a></sub></p>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/divider-dark.4be5c7a2.svg"><img src="https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/readme/divider-light.29b46755.svg" width="880" height="6" alt="Trennlinie"></picture>
+<!-- ppk-readme:body:end -->
 
 <!-- public-release:start -->
 Steuert den mobilen Windows-Hotspot und zeigt Geräte sowie Netzwerkeinstellungen.
@@ -24,27 +39,23 @@ Steuert den mobilen Windows-Hotspot und zeigt Geräte sowie Netzwerkeinstellunge
 **Prüfsummen:** [`HotspotControl-0.3.0-win-x64.zip.sha256`](https://github.com/popovantondev/HotspotControl/releases/download/v0.3.0/HotspotControl-0.3.0-win-x64.zip.sha256)
 <!-- public-release:end -->
 
-**[Webseite](https://popovantondev.github.io/HotspotControl/)** · **[Im Browser ausprobieren](https://popovantondev.github.io/HotspotControl/index.html)**
-
-![Hotspot Control mit fiktiven Demodaten](docs/images/demo-main-de.png)
-
 Hotspot Control ist eine kompakte Windows-11-Anwendung für den eingebauten mobilen Hotspot. Sie zeigt Status und verbundene Geräte, schaltet die Freigabe und bietet Netzwerk- und Autostarteinstellungen. Oberfläche, Fehler und Tray unterstützen Deutsch, Russisch und Englisch. Beim ersten Start wird die Sprache gewählt; spätere Änderungen in den Einstellungen gelten nach einem Neustart.
 
 ## Bildschirmansichten
 
 Diese WPF-Vorschaubilder verwenden erfundene Daten. Gerätenamen zeigt die App so an, wie Windows sie liefert; Beispielnamen, Adressen und die Kennzeichnung `DEMO` sind keine Erklärungstexte. Die Sprachnamen im Sprachauswahldialog benennen die verfügbaren Optionen.
 
-| Hauptfenster | Verbundene Geräte |
-|---|---|
-| ![Hauptfenster](docs/images/screenshots/de/main.png) | ![Verbundene Geräte](docs/images/screenshots/de/devices.png) |
+<details>
+<summary>Bilder anzeigen</summary>
 
-| Einfache Einstellungen | Erweiterte Einstellungen |
-|---|---|
-| ![Einfache Einstellungen](docs/images/screenshots/de/settings-simple.png) | ![Erweiterte Einstellungen](docs/images/screenshots/de/settings-advanced.png) |
+- [Hauptfenster](https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/screenshots/de/main.png)
+- [Verbundene Geräte](https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/screenshots/de/devices.png)
+- [Einfache Einstellungen](https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/screenshots/de/settings-simple.png)
+- [Erweiterte Einstellungen](https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/screenshots/de/settings-advanced.png)
+- [Sprachauswahl](https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/screenshots/de/language-selection.png)
+- [Meldung bei Zeitüberschreitung](https://raw.githubusercontent.com/popovantondev/HotspotControl/main/docs/images/screenshots/de/timeout-message.png)
 
-| Sprachauswahl | Zeitüberschreitung |
-|---|---|
-| ![Sprachauswahl](docs/images/screenshots/de/language-selection.png) | ![Meldung bei Zeitüberschreitung](docs/images/screenshots/de/timeout-message.png) |
+</details>
 
 ## Herunterladen und starten
 
