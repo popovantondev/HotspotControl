@@ -37,7 +37,7 @@
 .is-on .hsd-signal{filter:drop-shadow(0 0 22px rgba(74,145,255,.65))}
 /* the laptop in the drawing is the switch: a transparent button over the laptop, the power mark sits on its screen */
 .hsd-laptop{position:absolute;left:40.2%;top:74%;width:19.8%;height:12.6%;display:grid;place-items:center;padding:0;border:0;border-radius:9px;background:transparent;color:#63ffdf;cursor:pointer;transition:background .15s,box-shadow .15s,transform .15s}
-.hsd-laptop::before{content:"";position:absolute;inset:-8px}
+.hsd-laptop::before{content:"";position:absolute;left:50%;top:50%;width:max(calc(100% + 16px),44px);height:max(calc(100% + 16px),44px);transform:translate(-50%,-50%)}
 .hsd-laptop-mark{display:grid;place-items:center;width:38%;aspect-ratio:1;min-width:20px;border:1.5px solid #63ffdf;border-radius:25%;background:#113a51;pointer-events:none}
 .hsd-laptop-mark svg{width:50%;height:56%}
 .hsd-laptop:focus-visible{outline:none}
@@ -170,6 +170,7 @@
 /* Phones: 12 px minimum text, 40+ px buttons, three action buttons that fit a 288 px column */
 @media(max-width:640px){
 .hsd-brand,.hsd-caps-label,.hsd-foot,.hsd-small{font-size:12px}
+.hsd-brand{overflow:visible;text-overflow:clip;white-space:normal;line-height:1.2}
 .hsd-cap{width:44px;height:40px}
 .hsd-details.hsd-secondary,.hsd-details-inline.hsd-secondary{min-height:40px}
 }
