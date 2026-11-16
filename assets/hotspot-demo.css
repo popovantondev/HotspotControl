@@ -54,12 +54,12 @@
 .hsd-status{margin:8px 0 0;color:var(--hsd-accent);font-size:25px;font-weight:600;line-height:1.2}
 .hsd-status.is-off{color:#9fb6c3}
 .hsd-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px}
-.hsd-muted{color:var(--hsd-muted);font-size:12px}
+.hsd-muted{min-width:0;color:var(--hsd-muted);font-size:12px}
 .hsd-small{font-size:11px}
 .hsd-count{font-size:23px;font-weight:600;white-space:nowrap}
 .hsd-rule{height:1px;margin:14px 0 11px;background:var(--hsd-line)}
 .hsd-note{min-height:2.7em;color:var(--hsd-muted);font-size:12px}
-.hsd-details{margin-left:auto;display:flex;min-height:30px;padding:3px 10px}
+.hsd-details{margin-left:auto;display:flex;align-items:center;justify-content:center;min-height:30px;padding:3px 10px}
 .hsd-actions{flex:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px}
 .hsd-foot{flex:none;margin-top:12px;color:var(--hsd-muted);font-size:10px}
 .hsd-primary,.hsd-secondary{min-height:44px;padding:9px 6px;border:1px solid transparent;border-radius:12px;color:var(--hsd-ink);font:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:filter .15s,transform .15s}
@@ -69,8 +69,8 @@
 .hsd-primary:active,.hsd-secondary:active{transform:scale(.98)}
 .hsd-wide{width:100%}
 .hsd-details.hsd-secondary,.hsd-details-inline.hsd-secondary{width:auto;min-height:28px}
-.hsd-right{display:flex;align-items:center;gap:12px}
-.hsd-details-inline{display:none;padding:3px 10px;white-space:nowrap}
+.hsd-right{display:flex;align-items:center;gap:12px;flex:none;margin-left:auto}
+.hsd-details-inline{display:none;align-items:center;justify-content:center;padding:3px 10px;white-space:nowrap;line-height:1.2}
 .hsd-details{white-space:nowrap}
 /* compact layout (window height < 650 px), as in the program */
 .is-compact .hsd-screen{padding:4px 18px 12px}
@@ -78,7 +78,7 @@
 .is-compact .hsd-tagline,.is-compact .hsd-main .hsd-caps-label,.is-compact .hsd-rule,.is-compact .hsd-note,.is-compact .hsd-foot{display:none}
 .is-compact .hsd-card{padding:12px 16px}
 .is-compact .hsd-status{margin-top:0;font-size:21px}
-.is-compact .hsd-row{margin-top:5px}
+.is-compact .hsd-row{margin-top:5px;flex-wrap:wrap;row-gap:6px}
 .is-compact .hsd-count{font-size:19px}
 .is-compact .hsd-details{display:none}
 .is-compact .hsd-details-inline{display:flex}
