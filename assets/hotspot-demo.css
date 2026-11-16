@@ -1,6 +1,6 @@
 /* Demo window of the guide (assets/hotspot-demo.js). The window keeps the dark teal look of the program's screenshots
  * in both page themes; the frame around it follows the page theme. Width <= 420 px, height fits the screen. */
-.hsd{max-width:420px;margin:18px auto}
+.hsd{width:100%;min-width:0;max-width:420px;margin:18px auto}
 .hsd-head{display:flex;justify-content:center;margin:0 0 10px}
 .hsd-label{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border:1px solid var(--ppk-line);border-radius:999px;background:var(--ppk-tint);color:var(--ppk-accent);font-size:13px;font-weight:700}
 .hsd-label::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
@@ -165,4 +165,19 @@
 .hsd-static img{max-width:min(100%,420px);height:auto}
 @media(prefers-reduced-motion:reduce){
   .hsd-screen,.hsd-laptop,.hsd-primary,.hsd-secondary{animation:none!important;transition:none!important}
+}
+
+/* Phones: 12 px minimum text, 40+ px buttons, three action buttons that fit a 288 px column */
+@media(max-width:640px){
+.hsd-brand,.hsd-caps-label,.hsd-foot,.hsd-small{font-size:12px}
+.hsd-cap{width:44px;height:40px}
+.hsd-details.hsd-secondary,.hsd-details-inline.hsd-secondary{min-height:40px}
+}
+@media(max-width:360px){
+.hsd-brand{letter-spacing:0;white-space:normal;line-height:1.2}
+.hsd-screen{padding-left:10px;padding-right:10px}
+.is-compact .hsd-screen{padding-left:10px;padding-right:10px}
+.hsd-card{padding:12px}
+.hsd-actions{gap:6px}
+.hsd-primary,.hsd-secondary{padding-left:2px;padding-right:2px;font-size:12px}
 }
